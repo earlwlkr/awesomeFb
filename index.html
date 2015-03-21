@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
   <meta charset="utf-8">
   <title>Awesomenium</title>
@@ -10,53 +10,85 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <link rel="stylesheet" href="vendors/semantic-ui/semantic.min.css">
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="vendors/open-sans/open-sans.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="ui grid page">
-    <div class="ui centered sixteen wide column">
+    <div class="ui column">
+
       <div class="ui purple inverted top attached segment">
-        
         <div class="ui inverted secondary menu">      
           <a class="active item">
-            <i class="home icon"></i> Trang chủ
+            <i class="large home icon"></i><span class="item-title">Trang chủ
+            </span>
           </a>
           <a class="item">
-            <i class="info icon"></i> Cách hoạt động
+            <i class="large info icon"></i><span class="item-title">Cách hoạt động
+            </span>
           </a>
           <a class="item">
-            <i class="users icon"></i> Giới thiệu
+            <i class="large users icon"></i><span class="item-title">Giới thiệu
+            </span>
           </a>
         </div>     
       </div>
 
+      <div class="ui main center aligned attached segment">
+        <h1><b>awesomeFb</b></h1>
 
-        <div class="ui main center aligned attached segment">
-          <h1><b>awesomeFb</b></h1>
+        <div class="ui large action input main-input">
+          <input placeholder="Từ khóa" type="text">
+          <div class="ui large facebook vertical animated button" id="btnRun">
+            <div class="visible content">Tìm</div>
+            <div class="hidden content">
+              <i class="search icon"></i>
+            </div>
+          </div>
+        </div>
 
-          <div class="ui large action input">
-            <input placeholder="Từ khóa" type="text">
-            <div class="ui large facebook vertical animated button" id="btnRun">
-              <div class="visible content">Tìm</div>
-              <div class="hidden content">
-                <i class="search icon"></i>
+        <div class="ui grid">
+          <div class="centered two column row">
+            <div class="ui column">
+              
+              <div class="ui horizontal divider">
+                <div class="ui small button">
+                  <span id="toggleSettings">
+                    <i class="down arrow icon" id="toggle-icon"></i> Tùy chỉnh
+                  </span>
+                </div>
               </div>
+              
+              <div class="ui form" id="advancedSettings">
+                <div class="ui field fluid input">
+                  <input placeholder="Trang root" type="text">
+                
+                </div>
+                <div class="inline field">
+                  <select class="ui field dropdown">
+                    <option value="">Chuyên mục</option>
+                    <option value="1">Giải trí</option>
+                    <option value="0">Sản phẩm</option>
+                  </select>
+                
+                  <div class="ui checkbox">
+                    <input type="checkbox">
+                    <label>Tìm trong <b>Friends</b></label>
+                  </div>
+                </div>
+              </div>
+              
+
             </div>
           </div>
-
-          <div class="ui horizontal divider">
-            <div class="ui small button">
-            <span id="toggleSettings">
-            <i class="down arrow icon" id="toggle-icon"></i> Tùy chỉnh
-            </span>
-            </div>
-          </div>
-
         </div>
 
 
-      <div class="ui purple inverted center aligned bottom attached segment">© Awesomnium 2015
+      </div>
+
+      
+
+      <div class="ui purple inverted center aligned bottom attached segment"><b>© Awesomnium 2015</b>
       </div>
     </div>   
   </div>
@@ -74,12 +106,17 @@
     arrow.removeClass('up').removeClass('down');
     if (toggled) {
       arrow.addClass('down');
+      $('#advancedSettings').slideUp(100);
     } else {
       arrow.addClass('up');
+      $('#advancedSettings').slideDown(100);
     }
   });
   $('#btnRun').click(function() {
     $(this).addClass('loading');
   });
+  $('#advancedSettings').hide();
+  $('.ui.checkbox').checkbox();
+  $('.ui.dropdown').dropdown();
   </script>
 </body>

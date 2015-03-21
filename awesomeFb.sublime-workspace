@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
 				"padd",
 				"padding-bottom"
 			],
@@ -40,16 +48,8 @@
 				"margin-top"
 			],
 			[
-				"pad",
-				"padding-bottom"
-			],
-			[
 				"bor",
 				"border-top"
-			],
-			[
-				"fon",
-				"font-size"
 			],
 			[
 				"tabl",
@@ -423,7 +423,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 2109,
+				"buffer_size": 3871,
 				"line_ending": "Windows"
 			}
 		},
@@ -431,7 +431,7 @@
 			"file": "css/styles.css",
 			"settings":
 			{
-				"buffer_size": 582,
+				"buffer_size": 707,
 				"line_ending": "Windows"
 			}
 		}
@@ -622,11 +622,17 @@
 	"expanded_folders":
 	[
 		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend",
-		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/css",
-		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/js"
+		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/js",
+		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/vendors",
+		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/vendors/semantic-ui/themes/basic"
 	],
 	"file_history":
 	[
+		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/vendors/open-sans/open-sans.css",
+		"/C/Users/EARL/Desktop/practice/Semantic-UI-1.11.4/src/README.md",
+		"/C/Users/EARL/Desktop/practice/awesomeFb/.gitignore",
+		"/C/Users/EARL/Desktop/practice/quiz.js",
+		"/C/Users/EARL/Desktop/practice/mp3-zing.js",
 		"/C/Users/EARL/Desktop/practice/bootstrap-practice/css/main.css",
 		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.278/grid.css",
 		"/C/Users/EARL/Desktop/practice/1212156/index.html",
@@ -749,12 +755,7 @@
 		"/C/Users/EARL/Documents/GitHub/DotaBragger/DotaBragger/dota.py",
 		"/C/Users/EARL/Desktop/asd.txt",
 		"/C/Users/EARL/Google Drive/SAMP SERVER/pawno/include/formatnumber.inc",
-		"/C/Users/EARL/Desktop/NGRP.pwn",
-		"/C/Users/EARL/Google Drive/SAMP SERVER/pawno/include/sscanf2.inc",
-		"/C/Users/EARL/Google Drive/SAMP SERVER/scriptfiles/TruckLoad.txt",
-		"/C/Users/EARL/Desktop/svr/server_log.txt",
-		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.375/READ.txt",
-		"/C/Users/EARL/Desktop/VN-RP v1.6 ( Roleplay )/crashinfo.txt"
+		"/C/Users/EARL/Desktop/NGRP.pwn"
 	],
 	"find":
 	{
@@ -773,6 +774,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"eot",
+			"fonts/.+?/",
 			"@font-face",
 			"icon",
 			"basic",
@@ -898,9 +901,7 @@
 			"RCC_AHB1PeriphClockCmd",
 			"USART_Parity",
 			"USART_Stop_Bits",
-			"USART_Word_Length",
-			"USART_Cmd",
-			"print_events"
+			"USART_Word_Length"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -908,6 +909,8 @@
 		"regex": true,
 		"replace_history":
 		[
+			"ttf",
+			"fonts/",
 			"btn",
 			"<span class=\"attr\">",
 			"</span>",
@@ -935,15 +938,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2109,
+						"buffer_size": 3871,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1260,
-								1260
+								2763,
+								2763
 							]
 						],
 						"settings":
@@ -952,7 +955,7 @@
 							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 407.0,
+						"translation.y": 1227.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -964,15 +967,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 582,
+						"buffer_size": 707,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								55,
-								55
+								707,
+								707
 							]
 						],
 						"settings":
@@ -981,7 +984,7 @@
 							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 792.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1032,7 +1035,7 @@
 	"project": "awesomeFb.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -11,10 +11,10 @@ h1:first-child {
 }
 
 .main {
-  height: 600px;
+  height: 750px;
 }
 
-.input {
+.main-input {
   width: 500px;
 }
 
@@ -33,7 +33,12 @@ h1:first-child {
 }
 
 .ui.secondary.inverted.menu .link.item, .ui.secondary.inverted.menu a.item {
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.item-title {
+  vertical-align: middle;
 }
 
 .ui .divider {
