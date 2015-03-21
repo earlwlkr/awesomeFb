@@ -1,0 +1,1079 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"pa",
+				"padding-bottom"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"split",
+				"split_content"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"bor",
+				"border-top"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"tabl",
+				"table-cell"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"backgrouc",
+				"background-color"
+			],
+			[
+				"form",
+				"formCalculate"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"link",
+				"linkInputForm"
+			],
+			[
+				"mp3",
+				"mp3Url"
+			],
+			[
+				"clas",
+				"className"
+			],
+			[
+				"mp",
+				"mp3Url"
+			],
+			[
+				"stu",
+				"studentId"
+			],
+			[
+				"border",
+				"border-style"
+			],
+			[
+				"bord",
+				"border-color"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"re",
+				"reduceOne"
+			],
+			[
+				"coun",
+				"countWords"
+			],
+			[
+				"resu",
+				"results"
+			],
+			[
+				"filter",
+				"filter_ext"
+			],
+			[
+				"def",
+				"defs	Method"
+			],
+			[
+				"int",
+				"int_to_str"
+			],
+			[
+				"prob",
+				"probability"
+			],
+			[
+				"pun",
+				"punctuation"
+			],
+			[
+				"num",
+				"num_docs"
+			],
+			[
+				"sent",
+				"sentences"
+			],
+			[
+				"co",
+				"count_list"
+			],
+			[
+				"clus",
+				"cluster_path"
+			],
+			[
+				"read",
+				"read_cluster"
+			],
+			[
+				"pro",
+				"project_files"
+			],
+			[
+				"suo",
+				"suo_files"
+			],
+			[
+				"proj",
+				"project_dir"
+			],
+			[
+				"repl",
+				"replace_regex"
+			],
+			[
+				"replace",
+				"replace_word_in_file"
+			],
+			[
+				"Task_",
+				"Task_8_OpenCV"
+			],
+			[
+				"sln",
+				"sln_file"
+			],
+			[
+				"end",
+				"end{equation}	NMXLNNTN.tex"
+			],
+			[
+				"day",
+				"day_events"
+			],
+			[
+				"cour",
+				"course_items"
+			],
+			[
+				"get_c",
+				"get_course_items"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"use",
+				"usr_file"
+			],
+			[
+				"d",
+				"days_part"
+			],
+			[
+				"hours",
+				"hours_part"
+			],
+			[
+				"days",
+				"days_part"
+			],
+			[
+				"eve",
+				"event"
+			],
+			[
+				"due",
+				"due_date"
+			],
+			[
+				"next",
+				"next_sibling"
+			],
+			[
+				"ref",
+				"referrer"
+			],
+			[
+				"du",
+				"due_date"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"sub",
+				"sub_div"
+			],
+			[
+				"item",
+				"item_type"
+			],
+			[
+				"sel",
+				"select"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"ite",
+				"item_type"
+			],
+			[
+				"nor",
+				"normalize_unicode"
+			],
+			[
+				"course",
+				"course_soup"
+			],
+			[
+				"cou",
+				"courses"
+			],
+			[
+				"main",
+				"main_soup"
+			],
+			[
+				"st",
+				"student_id"
+			],
+			[
+				"ma",
+				"main_soup"
+			],
+			[
+				"prin",
+				"print_events"
+			],
+			[
+				"u",
+				"username"
+			],
+			[
+				"no",
+				"normalize_unicode"
+			],
+			[
+				"fi",
+				"find_all"
+			],
+			[
+				"inp",
+				"input_file"
+			],
+			[
+				"Ker",
+				"kernelArr"
+			],
+			[
+				"ker",
+				"kernelArr"
+			],
+			[
+				"el",
+				"elementValue"
+			],
+			[
+				"ele",
+				"elementValue"
+			],
+			[
+				"elem",
+				"elementPosX"
+			],
+			[
+				"_k",
+				"_kernelWidth"
+			],
+			[
+				"_kern",
+				"_kernelWidth"
+			],
+			[
+				"_",
+				"_kernelWidth"
+			],
+			[
+				"_ker",
+				"_kernel"
+			],
+			[
+				"_ke",
+				"_kernelHeight"
+			],
+			[
+				"extr",
+				"extractInfoboxSpouses"
+			],
+			[
+				"file",
+				"fileContent"
+			],
+			[
+				"fil",
+				"fileContent"
+			],
+			[
+				"fie",
+				"fileContent"
+			],
+			[
+				"Dota",
+				"DotaHandler"
+			],
+			[
+				"get_her",
+				"get_hero_name"
+			],
+			[
+				"ste",
+				"steam_account_id"
+			],
+			[
+				"print",
+				"print_latest_matches"
+			],
+			[
+				"stea",
+				"steam_api_key"
+			],
+			[
+				"hero",
+				"heroes_list"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"resp",
+				"response_name"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 2109,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/styles.css",
+			"settings":
+			{
+				"buffer_size": 582,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+			[
+				"prv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"pr",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"p",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"matching",
+				"Emmet: Go to Matching Pair"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"snip",
+				"Snippet: For Loop"
+			],
+			[
+				"markdown",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"repl ",
+				"SublimeREPL: Python"
+			],
+			[
+				"repl python",
+				"SublimeREPL: Python"
+			],
+			[
+				"replpy",
+				"SublimeREPL: Python"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"latexing",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"latex clear",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"Snippet: Bibtex ",
+				"Snippet: BibTeX Book"
+			],
+			[
+				"syntax C",
+				"Set Syntax: C"
+			],
+			[
+				"inde",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"jad",
+				"Set Syntax: Jade"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"syn late",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"syntax latex",
+				"Set Syntax: LaTeX"
+			],
+			[
+				":pyth",
+				"Set Syntax: Python"
+			],
+			[
+				":4",
+				"Set Syntax: camlp4"
+			],
+			[
+				"packv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"latexing pd",
+				"LaTeXing: Open PDF"
+			],
+			[
+				"latex",
+				"Preferences: LaTeXing Settings - User"
+			],
+			[
+				"la",
+				"LaTeXing: Fill"
+			],
+			[
+				"view",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"github",
+				"Github: Repository"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"package ",
+				"Package Control: Remove Package"
+			],
+			[
+				"markd",
+				"Set Syntax: MultiMarkdown"
+			]
+		],
+		"width": 520.0
+	},
+	"console":
+	{
+		"height": 132.0,
+		"history":
+		[
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend",
+		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/css",
+		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/js"
+	],
+	"file_history":
+	[
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/css/main.css",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.278/grid.css",
+		"/C/Users/EARL/Desktop/practice/1212156/index.html",
+		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/semantic.min.css",
+		"/C/Users/EARL/Desktop/practice/Semantic-UI-1.11.4/dist/semantic.css",
+		"/C/Users/EARL/Desktop/practice/Semantic-UI-1.11.4/dist/semantic.min.css",
+		"/C/Users/EARL/Desktop/practice/awesomeFb/frontend/semantic.min.js",
+		"/C/Users/EARL/Desktop/Semantic-UI-1.0/dist/semantic.css",
+		"/C/Users/EARL/Desktop/Semantic-UI-1.0/examples/kitchensink.html",
+		"/C/Users/EARL/Desktop/Semantic-UI-1.0/examples/kitchensink.css",
+		"/C/Users/EARL/Desktop/Semantic-UI-1.0/dist/semantic.js",
+		"/C/Users/EARL/Desktop/Semantic-UI-1.0/dist/semantic.min.js",
+		"/C/Users/EARL/Desktop/Semantic-UI-1.0/LICENSE.md",
+		"/F/xampp/htdocs/css/styles.css",
+		"/C/Users/EARL/Desktop/TextInputEffects/css/demo.css",
+		"/C/Users/EARL/Desktop/TextInputEffects/css/normalize.css",
+		"/C/Users/EARL/Desktop/TextInputEffects/js/classie.js",
+		"/C/Users/EARL/Desktop/TextInputEffects/index.html",
+		"/C/Users/EARL/Desktop/practice/first-web/src/app.js",
+		"/F/xampp/htdocs/1212156.php",
+		"/C/Users/EARL/Desktop/practice/first-web/index.html",
+		"/C/Users/EARL/Downloads/DetailUrl.php",
+		"/C/Users/EARL/Downloads/FindUrl.php",
+		"/C/Users/EARL/Desktop/practice/d2l-listing.rar",
+		"/C/Users/EARL/Desktop/practice/wordpress/wp-activate.php",
+		"/C/Users/EARL/Desktop/practice/javascripting/arrays.js",
+		"/C/Users/EARL/Desktop/practice/javascripting/array-filtering.js",
+		"/C/Users/EARL/Desktop/practice/javascripting/variables.js",
+		"/C/Users/EARL/Desktop/practice/javascripting/string-length.js",
+		"/C/Users/EARL/Desktop/practice/javascripting/numbers.js",
+		"/C/Users/EARL/Desktop/practice/functional-js/practice.js",
+		"/C/Users/EARL/Desktop/config.xml",
+		"/C/Users/EARL/Desktop/SmartBot/chatterbotapi.php",
+		"/C/Users/EARL/Desktop/SmartBot/test.php",
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/js/bootstrap.min.js",
+		"/C/Users/EARL/Desktop/practice/first-web/js/app.js",
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/css/bootstrap-theme.min.css",
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/js/jquery.min.js",
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/css/bootstrap-theme.css",
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/css/bootstrap.css",
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/css/bootstrap.css.map",
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/css/bootstrap-theme.css.map",
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/js/bootstrap.js",
+		"/C/Users/EARL/Desktop/practice/bootstrap-practice/js/npm.js",
+		"/C/Users/EARL/Desktop/practice/1212156_10/index.html",
+		"/C/Users/EARL/Desktop/practice/1212156_10/styles.css",
+		"/C/Users/EARL/Desktop/Main.java",
+		"/C/Users/EARL/AppData/Roaming/Sublime Text 3/Packages/Java/JavaC.sublime-build",
+		"/C/Users/EARL/Desktop/test.java",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.613/server-readme.txt",
+		"/C/Users/EARL/Desktop/bin/RakSAMPClient.xml",
+		"/C/Users/EARL/Google Drive/SAMP SERVER/scriptfiles/fps_ping.itd",
+		"/C/Users/EARL/Desktop/cmder/Readme.md",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.946/Readme.md",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.915/png_load.cpp",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.973/png_load.h",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.529/main.cpp",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.275/png_load.h",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.900/convert.py",
+		"/C/Users/EARL/Desktop/restfb-1.8.0/source/library/com/restfb/BaseFacebookClient.java",
+		"/C/Users/EARL/Desktop/restfb-1.8.0/source/library/com/restfb/Connection.java",
+		"/C/Users/EARL/Desktop/restfb-1.8.0/source/library/com/restfb/DefaultFacebookClient.java",
+		"/C/Users/EARL/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/EARL/Desktop/RakSAMP-master/client/bin/RakSAMPClient.xml",
+		"/F/xampp/htdocs/index.php",
+		"/F/xampp/htdocs/index.html",
+		"/F/xampp/htdocs/viewer.php",
+		"/C/Users/EARL/AppData/Roaming/Sublime Text 3/Packages/Seti_UI/README.md",
+		"/C/Users/EARL/Desktop/practice/be-tap-tinh/index.html",
+		"/C/Users/EARL/Desktop/restfb-1.8.0/source/example/com/restfb/example/LegacyExample.java",
+		"/C/Users/EARL/Desktop/restfb-1.8.0/source/example/com/restfb/example/Example.java",
+		"/C/Users/EARL/.gitconfig",
+		"/F/xampp/htdocs/test.php",
+		"/C/Users/EARL/Desktop/practice/be-tap-tinh/styles.css",
+		"/C/Users/EARL/Desktop/notes.txt",
+		"/C/Users/EARL/Desktop/practice/Awesomnium/members/1212156/1212156.html",
+		"/C/Users/EARL/Desktop/practice/Awesomnium/members/1212153/1212153.html",
+		"/C/Users/EARL/Desktop/practice/Awesomnium/members/1212144/1212144.html",
+		"/C/Users/EARL/Documents/GitHub/earlwlkr.github.io/members/1212144/1212144.html",
+		"/C/Users/EARL/Desktop/templatemo_395_urbanic/css/templatemo_style.css",
+		"/E/GTA San Andreas - 0.3z R2/ASI Loader ReadMe.txt",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.991/ReadMe(eng).txt",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.085/ReadMe(eng).txt",
+		"/C/Users/EARL/Desktop/MyPack/plamodpack.txt",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.015/Readme.txt",
+		"/C/Users/EARL/Desktop/templatemo_395_urbanic/index.html",
+		"/C/Users/EARL/Downloads/BeTapTinh.ver2.js",
+		"/C/Users/EARL/Downloads/temp.html",
+		"/C/Users/EARL/Desktop/VN-RP v1.6/server_log.txt",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.044/chatterbotapi.php",
+		"/C/Users/EARL/Desktop/VN-RP v1.6/scriptfiles/vukhiviplist.txt",
+		"/C/Users/EARL/Downloads/1212167.html",
+		"/C/Users/EARL/Desktop/VN-RP v1.6/gamemodes/NGRP.pwn",
+		"/C/Users/EARL/AppData/Roaming/Sublime Text 3/Packages/BracketGuard/README.md",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.357/gun.TXT",
+		"/C/Users/EARL/Desktop/output.txt",
+		"/C/Users/EARL/Desktop/test.py",
+		"/E/GTA San Andreas - 0.3z R2/cleo/READ.txt",
+		"/C/Users/EARL/Google Drive/SAMP SERVER/server_log.txt",
+		"/C/Users/EARL/Documents/GTA San Andreas User Files/SAMP/savedpositions.txt",
+		"/C/Users/EARL/Dropbox/PGame/server_log.txt",
+		"/C/Users/EARL/Downloads/advanced_swat_rope.txt",
+		"/C/Users/EARL/Google Drive/SAMP SERVER/pawno/include/Pure.inc",
+		"/C/Users/EARL/Desktop/practice/css-nang-cao/styles.css",
+		"/C/Users/EARL/Desktop/practice/css-nang-cao/index.html",
+		"/C/Users/EARL/Google Drive/SAMP SERVER/scriptfiles/welcome_td.itd",
+		"/C/Users/EARL/Dropbox/PGame/scriptfiles/CamEdit_welcome.txt",
+		"/C/Users/EARL/Downloads/NgPvC6Ft.txt",
+		"/C/Users/EARL/Dropbox/PGame/mysql_log.txt",
+		"/C/Users/EARL/Dropbox/PGame/scriptfiles/Webshoppt.txt",
+		"/C/Users/EARL/Google Drive/CODING/Algorithms/ReversePolishNotation/ReversePolishNotation.cpp",
+		"/C/Users/EARL/Desktop/jquery-ui-1.11.3.custom/jquery-ui.js",
+		"/C/Users/EARL/Desktop/tuan_3 - Copy.html",
+		"/C/Users/EARL/Desktop/tuan_3.html",
+		"/C/Users/EARL/Google Drive/SAMP SERVER/pawno/include/YSI/y_utils.inc",
+		"/C/Users/EARL/Desktop/New Text Document(1).txt",
+		"/C/Users/EARL/Desktop/New Text Document.txt",
+		"/D/Downloads/Worm World Party/data/data/RX7/SEXY/New Text Document.txt",
+		"/C/Users/EARL/Documents/GitHub/DotaBragger/DotaBragger/__init__.py",
+		"/C/Users/EARL/Documents/GitHub/DotaBragger/DotaBragger/dota.py",
+		"/C/Users/EARL/Desktop/asd.txt",
+		"/C/Users/EARL/Google Drive/SAMP SERVER/pawno/include/formatnumber.inc",
+		"/C/Users/EARL/Desktop/NGRP.pwn",
+		"/C/Users/EARL/Google Drive/SAMP SERVER/pawno/include/sscanf2.inc",
+		"/C/Users/EARL/Google Drive/SAMP SERVER/scriptfiles/TruckLoad.txt",
+		"/C/Users/EARL/Desktop/svr/server_log.txt",
+		"/C/Users/EARL/AppData/Local/Temp/Rar$DIa0.375/READ.txt",
+		"/C/Users/EARL/Desktop/VN-RP v1.6 ( Roleplay )/crashinfo.txt"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 92.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"@font-face",
+			"icon",
+			"basic",
+			"default",
+			"icon",
+			"content",
+			"filled",
+			".input__field",
+			"bgcolor-4",
+			"warning",
+			"myButton",
+			"<td>",
+			"</td>",
+			"f9f9f9",
+			"styles.css",
+			"attemptHack",
+			"GivePlayerValidWeapon",
+			"Designosaur",
+			"currentCurrency",
+			"getSteamMarketListingsURL",
+			"GetWeaponNameEx",
+			"\\n+(?!\\[)",
+			"\\n(?!\\w)",
+			".*vn-rp.*",
+			"\\n+(?!\\[)",
+			"\\n+",
+			"\\[.*\\] (?!\\w)",
+			"manifold",
+			"arcana",
+			"stealer",
+			"storm stealer",
+			"manifold",
+			"DATA_PATH",
+			"cereziAl",
+			"randomValue",
+			"a(",
+			"user_id",
+			"fb_dtsg",
+			"randomValue",
+			"cereziAl",
+			"Dark",
+			"myButton",
+			"\"",
+			"onfocusout",
+			"text",
+			"checkbox",
+			"firstNumber",
+			"secondNumber",
+			"hack",
+			"handleClick",
+			"alt",
+			"Student",
+			"student",
+			"build",
+			"getplayername",
+			"StationSelectHTTP",
+			"StationSearchInfoHTTP",
+			"enter",
+			"house",
+			"STATIONSEARCH",
+			"nullemail",
+			"OnEmailCheck",
+			"nullemail",
+			"email",
+			"StationSearchHTTP",
+			"STATIONSEARCH",
+			"sidebar_icons",
+			"..",
+			"includes",
+			"setCustomValidity",
+			"-45.0 45.0 90.0",
+			" -45.0 45.0 90.0",
+			"right",
+			"center",
+			"compare",
+			"lm_file",
+			"temp",
+			"holding_flag\\[.*?\\] .*? FLAG_HOLDING_WEAPON",
+			"checkUsersValid",
+			"getShortMessages",
+			"numbers",
+			"doubleAll",
+			"repeat",
+			"input",
+			"upperCaser",
+			"__EXTI__",
+			"kinh_tế Campuchia sẽ tiếp_tục tăng_trưởng ổn_định trong năm nay và năm tới , với tốc_độ tăng_trưởng tr",
+			"Ngày 23-10 , hàng nghìn người ủng_hộ đảng đối_lập Campuchia lại xuống_đường biểu_tình ở thủ_đô Phnom_Penh để phản_đối kết_quả bầu_cử quốc_hội hồi tháng 7",
+			"CNRP",
+			"Trong một cuộc biểu_tình trước đó của CNRP , bạo_động đã nổ ra làm một người chết và vài người bị_thương",
+			"num_containing_docs",
+			"direction",
+			"global",
+			"dictionaries",
+			"data",
+			"dirs",
+			"v120",
+			"glob.glob",
+			"p",
+			"replace_regex",
+			"name",
+			"new_word",
+			"new_name",
+			"RCC_APB1PeriphClockCmd",
+			"GPIO_Mode",
+			"itemize",
+			"7",
+			"371:",
+			"USART_ReceiveData",
+			"\\s\\s+",
+			"USART_GetFlagStatus",
+			"HSE_value",
+			"GPIO_TypeDef",
+			"GPIO_PinAFConfig",
+			"RCC_AHB1PeriphClockCmd",
+			"USART",
+			"GPIO_ReadInputDataBit",
+			"GPIO_Init",
+			"RCC_AHB1PeriphClockCmd",
+			"USART_InitTypeDef",
+			"USART_Init",
+			"USART_Cmd",
+			"RCC_AHB1PeriphClockCmd",
+			"USART_Parity",
+			"USART_Stop_Bits",
+			"USART_Word_Length",
+			"USART_Cmd",
+			"print_events"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"btn",
+			"<span class=\"attr\">",
+			"</span>",
+			"default.css",
+			"",
+			"'",
+			"glob",
+			" "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2109,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1260,
+								1260
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 407.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "css/styles.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 582,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								55,
+								55
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 133.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "awesomeFb.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\EARL\\Desktop\\test.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 263.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

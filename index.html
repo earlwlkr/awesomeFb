@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Awesomenium</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="vendors/semantic-ui/semantic.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="ui grid page">
+    <div class="ui centered sixteen wide column">
+      <div class="ui purple inverted top attached segment">
+        
+        <div class="ui inverted secondary menu">      
+          <a class="active item">
+            <i class="home icon"></i> Trang chủ
+          </a>
+          <a class="item">
+            <i class="info icon"></i> Cách hoạt động
+          </a>
+          <a class="item">
+            <i class="users icon"></i> Giới thiệu
+          </a>
+        </div>     
+      </div>
+
+
+        <div class="ui main center aligned attached segment">
+          <h1><b>awesomeFb</b></h1>
+
+          <div class="ui large action input">
+            <input placeholder="Từ khóa" type="text">
+            <div class="ui large facebook vertical animated button" id="btnRun">
+              <div class="visible content">Tìm</div>
+              <div class="hidden content">
+                <i class="search icon"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui horizontal divider">
+            <div class="ui small button">
+            <span id="toggleSettings">
+            <i class="down arrow icon" id="toggle-icon"></i> Tùy chỉnh
+            </span>
+            </div>
+          </div>
+
+        </div>
+
+
+      <div class="ui purple inverted center aligned bottom attached segment">© Awesomnium 2015
+      </div>
+    </div>   
+  </div>
+  
+  <script src="vendors/jquery/jquery.min.js"></script>
+  <script src="vendors/semantic-ui/semantic.min.js"></script>
+  <script>
+  $('.item').click(function() {
+    $('.active.item').removeClass('active');
+    $(this).addClass('active');
+  });
+  $('#toggleSettings').click(function() {
+    var arrow = $('.arrow.icon');
+    var toggled = arrow.hasClass('up');
+    arrow.removeClass('up').removeClass('down');
+    if (toggled) {
+      arrow.addClass('down');
+    } else {
+      arrow.addClass('up');
+    }
+  });
+  $('#btnRun').click(function() {
+    $(this).addClass('loading');
+  });
+  </script>
+</body>
