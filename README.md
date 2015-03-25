@@ -55,7 +55,7 @@ tiên nền tảng Web).
 * [restfb](http://restfb.com): Facebook API dành cho Java.
 * [nodejs](http://nodejs.org/): nền tảng server.
 * [mongodb](https://www.mongodb.org/): cơ sở dữ liệu noSQL.
-* [Bootstrap](http://getbootstrap.com/): framework dùng để thiết kế giao diện.
+* [Semantic UI](http://semantic-ui.com/): framework dùng để thiết kế giao diện.
 * ...
 
 ## Tài liệu tham khảo
