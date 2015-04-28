@@ -52,7 +52,8 @@ tiên nền tảng Web).
 
 ## Các công nghệ sẽ được sử dụng
 
-* [restfb](http://restfb.com): Facebook API dành cho Java.
+* [Spring Social Facebook](http://projects.spring.io/spring-social-facebook/): Facebook API dành cho Java.
+* [Spring Framework](http://projects.spring.io/spring-framework/): nền tảng server backend.
 * [nodejs](http://nodejs.org/): nền tảng server.
 * [mongodb](https://www.mongodb.org/): cơ sở dữ liệu noSQL.
 * [Semantic UI](http://semantic-ui.com/): framework dùng để thiết kế giao diện.
@@ -61,5 +62,10 @@ tiên nền tảng Web).
 ## Tài liệu tham khảo
 
 * [Facebook Graph API Doc](https://developers.facebook.com/docs/graph-api)
-* [restfb Javadoc](http://restfb.com/javadoc/index.html)
+* [Spring Social Facebook reference](http://docs.spring.io/spring-social-facebook/docs/2.0.1.RELEASE/reference/htmlsingle/)
 * ...
+
+## Cách cài đặt project (backend)
+
+1. Tải và giải nén [gradle](https://gradle.org/downloads/).
+2. Cài đặt gradle plugin cho Eclipse: https://marketplace.eclipse.org/content/gradle-integration-eclipse-44
