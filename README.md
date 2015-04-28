@@ -1,4 +1,4 @@
-# web-science-project
+# awesomeFb
 Đồ án khoa học web - Học kì 2 năm học 2014-2015
 
 ## Nội dung đề tài
