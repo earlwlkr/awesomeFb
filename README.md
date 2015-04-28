@@ -8,12 +8,12 @@ Thiết kế và xây dựng công cụ để lấy các thảo luận (comment)
 - [ ] Thu thập và lưu trữ các nội dung thảo luận theo chủ đề cho trước, mỗi một
 thảo luận có các nội dung sau: 
   - [ ] Thông tin người gởi thảo luận (Tên, email, phone, giới tính...)
-  - [ ] Nội dung thảo luận
-  - [ ] Thời gian gởi thảo luận
-  - [ ] Vị trí (location)
+  - [ ] Nội dung
+  - [ ] Thời gian
+  - [ ] Vị trí
   - [ ] Platform (gửi bằng di động, destop,...)
   - [ ] Link gốc của thảo luận
-  - [ ] Chủ đề của thảo luận.
+  - [ ] Chủ đề
 - [ ] Truy vấn nội dung dựa theo chủ đề - thời gian: hiển thị các bài thảo luận, thống
 kê số lượng thảo luận, số lượng người tham gia thảo luận, giới tính...
 
@@ -25,11 +25,11 @@ thảo luận bị lặp lại nhiều lần).
 - [ ] Thu thập theo chủ đề/điều kiện cho trước (không thông qua API search).
 
 ### Yêu cầu về kỹ thuật:
-- [ ] Phần thu thập được phát triển dựa trên ngôn ngữ Java (ưu tiên) hoặc C#.
-- [ ] Phần truy vấn và hiển thị được phát triển trên các ngôn ngữ/nền tảng tùy ý (Ưu
+- [x] Phần thu thập được phát triển dựa trên ngôn ngữ Java (ưu tiên) hoặc C#.
+- [x] Phần truy vấn và hiển thị được phát triển trên các ngôn ngữ/nền tảng tùy ý (Ưu
 tiên nền tảng Web).
-- [ ] Phần lưu trữ database sử dụng các hệ NoSQL: mongoDB…
-- [ ] Các phần phải được thiết kế thành các Module để có thể tái sử dụng.
+- [x] Phần lưu trữ database sử dụng các hệ NoSQL: mongoDB…
+- [x] Các phần phải được thiết kế thành các Module để có thể tái sử dụng.
 
 ### Yêu cầu về tài liệu:
 - [ ] Báo cáo các kết quả đã đạt được.
