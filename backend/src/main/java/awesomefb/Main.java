@@ -18,12 +18,12 @@ public class Main {
    * @param args
    */
   public static void main(String[] args) {
-    String target = "yannews";
+    String rootPage = "yannews";
     
-    String accessToken = "645245115609488|WdyDln6T0OFih3PXwF3dC3Qay9U"; // access token received from Facebook after OAuth authorization
+    String accessToken = "645245115609488|WdyDln6T0OFih3PXwF3dC3Qay9U";
     Facebook facebook = new FacebookTemplate(accessToken);
     
-    List<Post> feed = facebook.feedOperations().getFeed(target);
+    List<Post> feed = facebook.feedOperations().getFeed(rootPage);
     for (Post post: feed) {
       System.out.println(post.getMessage());
     }
