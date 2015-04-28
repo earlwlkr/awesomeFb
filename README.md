@@ -53,6 +53,7 @@ tiên nền tảng Web).
 ## Các công nghệ được sử dụng
 
 * [Spring Social Facebook 2.0.1](http://projects.spring.io/spring-social-facebook/): Facebook API dành cho Java.
+* [Node.js](https://nodejs.org/): front-end server.
 * [mongodb 3.0.2](https://www.mongodb.org/): cơ sở dữ liệu noSQL.
 * [Semantic UI](http://semantic-ui.com/): framework dùng để thiết kế giao diện.
 
@@ -60,6 +61,9 @@ tiên nền tảng Web).
 
 * [Facebook Graph API Doc](https://developers.facebook.com/docs/graph-api)
 * [Spring Social Facebook reference](http://docs.spring.io/spring-social-facebook/docs/2.0.1.RELEASE/reference/htmlsingle/)
+* [Spring Social Facebook API](http://docs.spring.io/spring-social-facebook/docs/2.0.1.RELEASE/apidocs/)
+* [MongoDB Java Driver Quick Tour](http://mongodb.github.io/mongo-java-driver/2.13/getting-started/quick-tour/)
+* [MongoDB Node.js Driver Quick Start](http://mongodb.github.io/node-mongodb-native/2.0/)
 
 ## Cách cài đặt project (backend)
 
