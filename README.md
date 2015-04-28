@@ -67,5 +67,7 @@ tiên nền tảng Web).
 
 ## Cách cài đặt project (backend)
 
-1. Tải và giải nén [gradle](https://gradle.org/downloads/).
-2. Cài đặt gradle plugin cho Eclipse: https://marketplace.eclipse.org/content/gradle-integration-eclipse-44
+Chỉ cần vào folder project và chạy ```gradlew build```
+
+*Cài đặt gradle plugin cho Eclipse nếu cần: https://marketplace.eclipse.org/content/gradle-integration-eclipse-44*
+
