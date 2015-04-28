@@ -53,21 +53,17 @@ tiên nền tảng Web).
 ## Các công nghệ được sử dụng
 
 * [Spring Social Facebook 2.0.1](http://projects.spring.io/spring-social-facebook/): Facebook API dành cho Java.
-* [Spring Framework](http://projects.spring.io/spring-framework/): nền tảng server backend.
-* [nodejs](http://nodejs.org/): nền tảng server.
 * [mongodb 3.0.2](https://www.mongodb.org/): cơ sở dữ liệu noSQL.
 * [Semantic UI](http://semantic-ui.com/): framework dùng để thiết kế giao diện.
-* ...
 
 ## Tài liệu tham khảo
 
 * [Facebook Graph API Doc](https://developers.facebook.com/docs/graph-api)
 * [Spring Social Facebook reference](http://docs.spring.io/spring-social-facebook/docs/2.0.1.RELEASE/reference/htmlsingle/)
-* ...
 
 ## Cách cài đặt project (backend)
 
-1. Tải và cài đặt [mongodb 3.0.2](https://www.mongodb.org/)
+1. Tải và cài đặt [mongodb 3.0.2](https://www.mongodb.org/), xem [Install MongoDB on Windows](http://docs.mongodb.org/getting-started/shell/tutorial/install-mongodb-on-windows/)
 2. Vào folder project và chạy ```gradlew build``` để thực hiện build project và tải các thư viện cần thiết.
 3. ```gradlew run``` để chạy thử project.
 
