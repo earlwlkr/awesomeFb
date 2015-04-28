@@ -50,12 +50,12 @@ tiên nền tảng Web).
 * IDE: Eclipse Luna.
 * Chuẩn lập trình: tuân theo [Google Java Style](https://google-styleguide.googlecode.com/svn/trunk/javaguide.html) (chú ý *Formatting* và *Naming*).
 
-## Các công nghệ sẽ được sử dụng
+## Các công nghệ được sử dụng
 
-* [Spring Social Facebook](http://projects.spring.io/spring-social-facebook/): Facebook API dành cho Java.
+* [Spring Social Facebook 2.0.1](http://projects.spring.io/spring-social-facebook/): Facebook API dành cho Java.
 * [Spring Framework](http://projects.spring.io/spring-framework/): nền tảng server backend.
 * [nodejs](http://nodejs.org/): nền tảng server.
-* [mongodb](https://www.mongodb.org/): cơ sở dữ liệu noSQL.
+* [mongodb 3.0.2](https://www.mongodb.org/): cơ sở dữ liệu noSQL.
 * [Semantic UI](http://semantic-ui.com/): framework dùng để thiết kế giao diện.
 * ...
 
