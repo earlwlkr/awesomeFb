@@ -67,7 +67,9 @@ tiên nền tảng Web).
 
 ## Cách cài đặt project (backend)
 
-Chỉ cần vào folder project và chạy ```gradlew build```
+1. Tải và cài đặt [mongodb 3.0.2](https://www.mongodb.org/)
+2. Vào folder project và chạy ```gradlew build``` để thực hiện build project và tải các thư viện cần thiết.
+3. ```gradlew run``` để chạy thử project.
 
 *Cài đặt gradle plugin cho Eclipse nếu cần: https://marketplace.eclipse.org/content/gradle-integration-eclipse-44*
 
