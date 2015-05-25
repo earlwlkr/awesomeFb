@@ -29,7 +29,7 @@ public class Main {
    */
   public static void main(String[] args) throws UnknownHostException {
     String rootPage = "yannews";
-    String accessToken = "CAAJK2NXosZAABAKCejP1gLqcnf4EGZC4S61I5n2d1ckO4xrCZBivunTzudXXVcX1kc9UqRZAMV8gz7BmFhFZCzDJAUN31K6IxXhTwF2NjgZBg3OgAYbeP7KQ2qZCYpTuURIlZCNENs6m5GxH1CMaen39dZBzaAoBGyeLYTmFu0RbzCKQy7YpQi3CBbz2ZARZC8YlB6iWPTvNo9lrbVJNnf0JdZCC0LoFY80pmEAZD";
+    String accessToken = "CAAJK2NXosZAABAPjvopDAeoFgmBFZB98ixFdop1sFGiBKsZB2ZAZCrPgVein9u6lxxG28fDHELyvE1Unyvmi2XSkaG5wuIflAYTc2vp7DT4xkD6j9lFN1l60la0sVsLbPRysxbOV6kmbAKpLPXbvza4Rb1bW5k9gu0ZBZARbI4ZBcUYwlb5Wat2OhZC4zaqEoXZCDSLAy6CTZBSvXtNujkGRipF";
     
     facebook = new FacebookTemplate(accessToken);
     // Connect to mongodb.
