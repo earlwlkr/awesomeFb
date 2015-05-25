@@ -49,3 +49,5 @@ local.properties
 .texlipse
 
 node_modules/
+backend/.idea/
+*.iml
