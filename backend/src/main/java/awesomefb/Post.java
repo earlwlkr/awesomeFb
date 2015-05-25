@@ -21,13 +21,19 @@ public class Post {
     public Post(JSONObject post) {
         mMessage = post.getString("message");
         mCreator = new User(post.getJSONObject("from"));
+        mCreatedTime = parseTime(post.getString("created_time"));
+        mCommentsList = new CommentsList(post.getJSONObject("comments").getJSONArray("data"));
+    }
+
+    private Date parseTime(String dateString) {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
         try {
-            mCreatedTime = format.parse(post.getString("created_time"));
+            Date time = format.parse(dateString);
+            return time;
         } catch (ParseException e) {
             System.out.println(e.toString());
         }
-        mCommentsList = new CommentsList(post.getJSONObject("comments").getJSONArray("data"));
+        return null;
     }
 
     public BasicDBObject toDBObject() {
