@@ -52,7 +52,6 @@ tiên nền tảng Web).
 
 ## Các công nghệ được sử dụng
 
-* [Spring Social Facebook 2.0.1](http://projects.spring.io/spring-social-facebook/): Facebook API dành cho Java.
 * [Node.js v0.12.2](https://nodejs.org/): front-end server.
 * [mongodb 3.0.2](https://www.mongodb.org/): cơ sở dữ liệu noSQL.
 * [Semantic UI 1.12.1](http://semantic-ui.com/): framework dùng để thiết kế giao diện.
@@ -60,16 +59,23 @@ tiên nền tảng Web).
 ## Tài liệu tham khảo
 
 * [Facebook Graph API Doc](https://developers.facebook.com/docs/graph-api)
-* [Spring Social Facebook reference](http://docs.spring.io/spring-social-facebook/docs/2.0.1.RELEASE/reference/htmlsingle/)
-* [Spring Social Facebook API](http://docs.spring.io/spring-social-facebook/docs/2.0.1.RELEASE/apidocs/)
 * [MongoDB Java Driver Quick Tour](http://mongodb.github.io/mongo-java-driver/2.13/getting-started/quick-tour/)
 * [MongoDB Node.js Driver Quick Start](http://mongodb.github.io/node-mongodb-native/2.0/)
 
-## Cách cài đặt project (backend)
+## Cách sử dụng project
 
-1. Tải và cài đặt [mongodb 3.0.2](https://www.mongodb.org/), xem [Install MongoDB on Windows](http://docs.mongodb.org/getting-started/shell/tutorial/install-mongodb-on-windows/)
-2. Vào folder project và chạy ```gradlew build``` để thực hiện build project và tải các thư viện cần thiết.
-3. ```gradlew run``` để chạy thử project.
+### Backend
+
+1. Tải và cài đặt [mongodb 3.0.2](https://www.mongodb.org/), xem [Install MongoDB on Windows](http://docs.mongodb.org/getting-started/shell/tutorial/install-mongodb-on-windows/).
+2. Chạy mongodb.
+3. Vào thư mục project và chạy ```gradlew build``` để thực hiện build project và tải các thư viện cần thiết.
+4. ```gradlew run``` để chạy thử project.
 
 *Cài đặt gradle plugin cho Eclipse nếu cần: https://marketplace.eclipse.org/content/gradle-integration-eclipse-44*
+
+### Frontend
+
+1. Cài đặt NodeJS.
+2. ```cd``` đến thư mục frontend và chạy ```npm install``` để Node Package Manager tải các thư viện cần thiết.
+3. ```node app.js```
 
