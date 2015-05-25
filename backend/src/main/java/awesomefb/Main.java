@@ -61,27 +61,28 @@ public class Main {
   private static BasicDBObject getSenderDetailedInfo(String id) {
     BasicDBObject ret = new BasicDBObject("id", id);
     try {
+      Page page = facebook.pageOperations().getPage(id);
+      String name = page.getName();
+      ret.append("name", name);
+
+      List<Reference> cat = page.getCategoryList();
+      if (cat != null) {
+        ret.append("cat", cat.get(0).getName());
+      }
+
+    } catch (UncategorizedApiException e) { // It's a page, extract page's info.
       User user = facebook.userOperations().getUserProfile(id);
       String name = user.getName();
       ret.append("name", name);
-      
+
       String email = user.getEmail();
       if (email != null) {
         ret.append("email", email);
       }
-      
+
       String birthday = user.getBirthday();
       if (birthday != null) {
         ret.append("birthday", birthday);
-      }
-    } catch (UncategorizedApiException e) { // It's a page, extract page's info.
-      Page page = facebook.pageOperations().getPage(id);
-      String name = page.getName();
-      ret.append("name", name);
-      
-      List<Reference> cat = page.getCategoryList();
-      if (cat != null) {
-        ret.append("cat", cat.get(0).getName());
       }
     }
     return ret;
