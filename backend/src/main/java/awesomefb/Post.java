@@ -1,6 +1,8 @@
 package awesomefb;
 
 import com.mongodb.BasicDBObject;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
@@ -22,7 +24,13 @@ public class Post {
         mMessage = post.getString("message");
         mCreator = new User(post.getJSONObject("from"));
         mCreatedTime = parseTime(post.getString("created_time"));
-        mCommentsList = new CommentsList(post.getJSONObject("comments").getJSONArray("data"));
+        try {
+            JSONArray comments = post.getJSONObject("comments").getJSONArray("data");
+            mCommentsList = new CommentsList(comments);
+        } catch (JSONException e) {
+            System.out.println(e.toString());
+            mCommentsList = null;
+        }
     }
 
     private Date parseTime(String dateString) {
@@ -39,8 +47,11 @@ public class Post {
     public BasicDBObject toDBObject() {
         BasicDBObject doc = new BasicDBObject("message", mMessage)
                 .append("creator", mCreator.toDBObject())
-                .append("time", mCreatedTime)
-                .append("comments", mCommentsList.toDBObject());
+                .append("time", mCreatedTime);
+
+        if (mCommentsList != null) {
+            doc.append("comments", mCommentsList.toDBObject());
+        }
         return doc;
     }
 }
