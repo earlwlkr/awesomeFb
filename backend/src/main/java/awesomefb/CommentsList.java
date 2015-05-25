@@ -14,7 +14,8 @@ public class CommentsList {
     public CommentsList(JSONArray comments) {
         mCommentsList = new ArrayList<>();
         for (int i = 0; i < comments.length(); i++) {
-            mCommentsList.add(new Comment(comments.getJSONObject(i)));
+            Comment comment = new Comment(comments.getJSONObject(i));
+            mCommentsList.add(comment);
         }
     }
 
