@@ -30,13 +30,9 @@ public class Main {
     
     facebook = new FacebookTemplate(accessToken);
     // Connect to mongodb.
-    MongoClient mongoClient = new MongoClient();
-    DB db = mongoClient.getDB("awesomefb");
-    // Connect to collection (table in mysql).
-    DBCollection posts_collection = db.getCollection("posts");
-    DBCollection users_collection = db.getCollection("users");
-    posts_collection.drop();
-    users_collection.drop();
+    DatabaseManager dbManager = DatabaseManager.getInstance();
+    DBCollection postsCollection = dbManager.getPostsCollection();
+    DBCollection usersCollection = dbManager.getUsersCollection();
     
     List<Post> feed = facebook.feedOperations().getPosts(rootPage);
     for (Post post: feed) {
@@ -44,29 +40,29 @@ public class Main {
       System.out.println("[awesomeFb] Processing post " + id);
       
       BasicDBObject doc = new BasicDBObject("message", post.getMessage())
-                                            .append("creator", getCreatorInfo(users_collection, post.getFrom()))
+                                            .append("creator", getCreatorInfo(usersCollection, post.getFrom()))
                                             .append("time", post.getCreatedTime())
-                                            .append("comments", getComments(users_collection, facebook.commentOperations()
+                                            .append("comments", getComments(usersCollection, facebook.commentOperations()
                                                     .getComments(id)))
                                             .append("link", post.getLink());
-      posts_collection.insert(doc);
+      postsCollection.insert(doc);
     }
   }
     
   /**
    * Saves user data into users collection,
    * returns DBObject with newly inserted id and some basic info (FB ID, name)
-   * @param users_collection
+   * @param usersCollection
    * @param reference
    * @return BasicDBObject
    */
-  private static BasicDBObject getCreatorInfo(DBCollection users_collection, Reference reference) {
+  private static BasicDBObject getCreatorInfo(DBCollection usersCollection, Reference reference) {
     String id = reference.getId();
     String name = reference.getName();
 
     BasicDBObject userObject = new BasicDBObject("id", id).append("name", name);
     System.out.println("[awesomeFb] Inserting basic user data " + id);
-    users_collection.insert(userObject);
+    usersCollection.insert(userObject);
 
     // Returns DBObject with id of the object just inserted
     BasicDBObject ret = new BasicDBObject("user_id", userObject.get("_id").toString())
@@ -74,11 +70,11 @@ public class Main {
     return ret;
   }
   
-  private static BasicDBObject getComments(DBCollection users_collection, List<Comment> comments) {
+  private static BasicDBObject getComments(DBCollection usersCollection, List<Comment> comments) {
     Integer count = comments.size();
     BasicDBObject ret = new BasicDBObject("count", count);
     for (Integer i = 0; i != count; i++) {
-      ret.append(i.toString(), new BasicDBObject("creator", getCreatorInfo(users_collection,
+      ret.append(i.toString(), new BasicDBObject("creator", getCreatorInfo(usersCollection,
               comments.get(i).getFrom()))
               .append("message", comments.get(i).getMessage()));
     }
