@@ -1,5 +1,6 @@
 package awesomefb;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
@@ -39,11 +40,11 @@ public class DatabaseManager {
         usersCollection.drop();
     }
 
-    public DBCollection getPostsCollection() {
-        return postsCollection;
+    public void insertPost(ExtractedPost post) {
+        postsCollection.insert(post.toDBObject());
     }
 
-    public DBCollection getUsersCollection() {
-        return usersCollection;
+    public void insertUser(ExtractedUser user) {
+        usersCollection.insert(user.toDBObject());
     }
 }
