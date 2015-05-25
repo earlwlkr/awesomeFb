@@ -2,12 +2,12 @@ package awesomefb;
 
 import com.mongodb.BasicDBObject;
 import org.bson.types.ObjectId;
-import org.springframework.social.facebook.api.Reference;
+import org.json.JSONObject;
 
 /**
  * Created by earl on 5/25/2015.
  */
-public class ExtractedUser {
+public class User {
     private String mUserId;
     private String mFacebookId;
     private String mName;
@@ -17,9 +17,9 @@ public class ExtractedUser {
      * returns DBObject with newly inserted id and some basic info (FB ID, name)
      * @param reference
      */
-    public ExtractedUser(Reference reference) {
-        mFacebookId = reference.getId();
-        mName = reference.getName();
+    public User(JSONObject reference) {
+        mFacebookId = reference.getString("id");
+        mName = reference.getString("name");
         DatabaseManager databaseManager = DatabaseManager.getInstance();
 
         BasicDBObject userObject = new BasicDBObject("fb_id", mFacebookId).append("name", mName);

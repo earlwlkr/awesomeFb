@@ -1,21 +1,20 @@
 package awesomefb;
 
 import com.mongodb.BasicDBObject;
-import org.springframework.social.facebook.api.Comment;
+import org.json.JSONArray;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by earl on 5/25/2015.
  */
-public class ExtractedCommentsList {
-    private ArrayList<ExtractedComment> mCommentsList;
+public class CommentsList {
+    private ArrayList<Comment> mCommentsList;
 
-    public ExtractedCommentsList(List<Comment> comments) {
-        mCommentsList = new ArrayList<ExtractedComment>();
-        for (Comment comment: comments) {
-            mCommentsList.add(new ExtractedComment(comment));
+    public CommentsList(JSONArray comments) {
+        mCommentsList = new ArrayList<>();
+        for (int i = 0; i < comments.length(); i++) {
+            mCommentsList.add(new Comment(comments.getJSONObject(i)));
         }
     }
 
@@ -24,7 +23,7 @@ public class ExtractedCommentsList {
         BasicDBObject doc = new BasicDBObject("count", count);
 
         for (Integer i = 0; i != count; i++) {
-            ExtractedComment comment = mCommentsList.get(i);
+            Comment comment = mCommentsList.get(i);
             doc.append(i.toString(), new BasicDBObject("creator", comment.getCreator().toDBObject())
                     .append("message", comment.getMessage()));
         }

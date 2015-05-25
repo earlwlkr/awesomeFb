@@ -4,9 +4,9 @@
 package awesomefb;
 
 import java.net.UnknownHostException;
-import java.util.List;
 
-import org.springframework.social.facebook.api.Post;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * @author earl
@@ -21,17 +21,18 @@ public class Main {
      */
     public static void main(String[] args) throws UnknownHostException {
         // Topics: samsung, iphone, coffee, galaxy
-        String rootPage = "KHTNCFS";
+        String rootPage = "yannews";
 
         // Connect to mongodb.
         mDatabaseManager = DatabaseManager.getInstance();
 
-        List<Post> feed = FacebookManager.getInstance().getPosts(rootPage);
-        for (Post post : feed) {
-            String id = post.getId();
+        JSONArray feed = FacebookManager.getInstance().getPosts(rootPage);
+        for (int i = 0; i < feed.length(); i++) {
+            JSONObject post = feed.getJSONObject(i);
+            String id = post.getString("id");
             System.out.println("[awesomeFb] Processing post " + id);
 
-            ExtractedPost extractedPost = new ExtractedPost(post);
+            Post extractedPost = new Post(post);
             mDatabaseManager.insertPost(extractedPost);
         }
     }
