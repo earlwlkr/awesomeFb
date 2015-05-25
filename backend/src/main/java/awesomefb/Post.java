@@ -21,6 +21,26 @@ public class Post {
     private Date mCreatedTime;
     private CommentsList mCommentsList;
 
+    public String getId() {
+        return mId;
+    }
+
+    public String getMessage() {
+        return mMessage;
+    }
+
+    public User getCreator() {
+        return mCreator;
+    }
+
+    public Date getCreatedTime() {
+        return mCreatedTime;
+    }
+
+    public CommentsList getCommentsList() {
+        return mCommentsList;
+    }
+
     public Post(JSONObject post) {
         mId = post.getString("id");
         mMessage = post.getString("message");
