@@ -28,7 +28,6 @@ public class User {
         mUserId = new ObjectId().toString();
         userObject.put("_id", mUserId);
 
-        System.out.println("[awesomeFb] Inserting basic user data " + mFacebookId);
         databaseManager.insertUser(this);
     }
 
