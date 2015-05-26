@@ -1,8 +1,6 @@
 package awesomefb;
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.MongoClient;
+import com.mongodb.*;
 
 import java.net.UnknownHostException;
 
@@ -44,6 +42,7 @@ public class DatabaseManager {
     }
 
     public void insertUser(User user) {
-        usersCollection.insert(user.toDBObject());
+        String facebookId = user.getFacebookId();
+        usersCollection.update(new BasicDBObject("fb_id", facebookId), user.toDBObject(), true, false);
     }
 }
