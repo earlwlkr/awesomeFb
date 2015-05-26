@@ -30,6 +30,18 @@ public class User {
         databaseManager.insertUser(this);
     }
 
+    public String getUserId() {
+        return mUserId;
+    }
+
+    public String getFacebookId() {
+        return mFacebookId;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
     public BasicDBObject toDBObject() {
         return new BasicDBObject("user_id", mUserId)
                 .append("fb_id", mFacebookId).append("name", mName);
