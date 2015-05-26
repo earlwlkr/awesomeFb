@@ -15,7 +15,7 @@ public class Page {
 
     public Page(String idOrName) {
         mFacebook = FacebookManager.getInstance();
-        JSONObject obj = mFacebook.request(idOrName, (Object)null);
+        JSONObject obj = mFacebook.request(idOrName, null);
         if (obj != null) {
             mId = obj.getString("id");
             mName = obj.getString("name");
