@@ -11,6 +11,7 @@ import java.io.IOException;
  */
 public class FacebookManager {
     private static FacebookManager instance = null;
+    private final String API_ENDPOINT = "https://graph.facebook.com/v2.3/";
     private final String
             ACCESS_TOKEN = "CAAJK2NXosZAABAPjvopDAeoFgmBFZB98ixFdop1sFGiBKsZB2ZAZCrPgVein9u6lxxG28fDHELyvE1Unyvmi2XSkaG5wuIflAYTc2vp7DT4xkD6j9lFN1l60la0sVsLbPRysxbOV6kmbAKpLPXbvza4Rb1bW5k9gu0ZBZARbI4ZBcUYwlb5Wat2OhZC4zaqEoXZCDSLAy6CTZBSvXtNujkGRipF";
 
@@ -24,8 +25,7 @@ public class FacebookManager {
     protected FacebookManager() {}
 
     public JSONObject request(String node, Object params) {
-        String apiEndpoint = "https://graph.facebook.com/v2.3/";
-        String url = apiEndpoint + node + "?";
+        String url = API_ENDPOINT + node + "?";
         if (params != null) {
             url += params + "&";
         }
@@ -33,11 +33,7 @@ public class FacebookManager {
 
         try {
             JSONObject obj = JsonReader.readJsonFromUrl(url);
-            if (obj.has("error")) {
-                System.out.println(obj.getJSONObject("error").getString("message"));
-            } else {
-                return obj;
-            }
+            return obj;
         } catch (IOException e) {
             System.out.println(e.toString());
         }
