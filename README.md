@@ -79,3 +79,9 @@ tiên nền tảng Web).
 2. ```cd``` đến thư mục frontend và chạy ```npm install``` để Node Package Manager tải các thư viện cần thiết.
 3. ```node app.js```
 
+### Các vấn đề hiện có
+
+- Xử lý đề tài: kiểm tra nội dung của post có liên quan đến chủ đề không. Tạo lớp ```ContentManger``` có phương thức ```isRelated```, truyền vào nội dung của post và chuỗi chủ đề, trả về true nếu có liên quan.
+- Kiểm tra spam: tương tự trên.
+- Lấy thông tin bổ sung của người dùng: Facebook Graph không cho phép lấy profile của user khác, chỉ có thể lấy được ID và tên.
+- Lấy thông tin bổ sung của post: Facebook Graph không cung cấp các thông tin như vị trí, platform.
