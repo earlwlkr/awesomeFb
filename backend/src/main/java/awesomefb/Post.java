@@ -8,7 +8,9 @@ import org.json.JSONObject;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -19,7 +21,8 @@ public class Post {
     private String mMessage;
     private User mCreator;
     private Date mCreatedTime;
-    private CommentsList mCommentsList;
+    private JSONArray mComments;
+    private List<Comment> mCommentsList;
 
     public String getId() {
         return mId;
@@ -37,8 +40,12 @@ public class Post {
         return mCreatedTime;
     }
 
-    public CommentsList getCommentsList() {
-        return mCommentsList;
+    public JSONArray getComments() {
+        return mComments;
+    }
+
+    public void addComment(Comment comment) {
+        mCommentsList.add(comment);
     }
 
     public Post(JSONObject post) {
@@ -46,12 +53,12 @@ public class Post {
         mMessage = post.getString("message");
         mCreator = new User(post.getJSONObject("from"));
         mCreatedTime = parseTime(post.getString("created_time"));
-        try {
+        mCommentsList = new ArrayList<>();
+        if (post.has("comments")) {
             JSONArray comments = post.getJSONObject("comments").getJSONArray("data");
-            mCommentsList = new CommentsList(comments);
-        } catch (JSONException e) {
-            System.out.println(e.toString());
-            mCommentsList = null;
+            mComments = comments;
+        } else {
+            mComments = null;
         }
     }
 
@@ -73,7 +80,15 @@ public class Post {
                 .append("time", mCreatedTime);
 
         if (mCommentsList != null) {
-            doc.append("comments", mCommentsList.toDBObject());
+            Integer count = mCommentsList.size();
+            BasicDBObject commentsDoc = new BasicDBObject("count", count);
+
+            for (Integer i = 0; i != count; i++) {
+                Comment comment = mCommentsList.get(i);
+                commentsDoc.append(i.toString(), new BasicDBObject("creator", comment.getCreator().toDBObject())
+                        .append("message", comment.getMessage()));
+            }
+            doc.append("comments", commentsDoc);
         }
         return doc;
     }
