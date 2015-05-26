@@ -33,6 +33,7 @@ public class FacebookFocusedCrawler {
             String pageId = queue.remove();
             // Call request and get basic page info (id, name)
             Page page = new Page(pageId);
+            pageId = page.getName();
 
             // If that page exists and is not processed
             if (page.getId() != null && !crawledPages.contains(pageId)) {
@@ -50,17 +51,14 @@ public class FacebookFocusedCrawler {
                     System.out.println("[awesomeFb] Processing post " + post.getId());
 
                     // Get list of comments as JSON array
-                    JSONArray comments = post.getComments();
+                    List<Comment> comments = post.getComments();
                     if (comments != null) {
-                        for (int j = 0, l = comments.length(); j < l; j++) {
-                            // Extract comment data
-                            Comment comment = new Comment(comments.getJSONObject(j));
+                        for (Comment comment: comments) {
                             User commentCreator = comment.getCreator();
                             // If comment creator is page, add it to queue
                             if (commentCreator.isPage()) {
                                 queue.add(commentCreator.getFacebookId());
                             }
-                            post.addComment(comment);
                         }
                     }
 
