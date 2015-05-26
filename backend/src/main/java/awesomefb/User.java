@@ -11,6 +11,7 @@ public class User {
     private String mUserId;
     private String mFacebookId;
     private String mName;
+    private boolean mIsPage;
 
     /**
      * Saves user data into users collection,
@@ -20,6 +21,7 @@ public class User {
     public User(JSONObject reference) {
         mFacebookId = reference.getString("id");
         mName = reference.getString("name");
+        mIsPage = reference.has("category");
         DatabaseManager databaseManager = DatabaseManager.getInstance();
 
         BasicDBObject userObject = new BasicDBObject("fb_id", mFacebookId).append("name", mName);
@@ -42,8 +44,15 @@ public class User {
         return mName;
     }
 
+    public boolean isPage() {
+        return mIsPage;
+    }
+
     public BasicDBObject toDBObject() {
         return new BasicDBObject("user_id", mUserId)
-                .append("fb_id", mFacebookId).append("name", mName);
+                .append("fb_id", mFacebookId)
+                .append("name", mName)
+                .append("is_page", mIsPage)
+                ;
     }
 }
