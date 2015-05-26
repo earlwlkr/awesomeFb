@@ -45,14 +45,13 @@ public class FacebookFocusedCrawler {
                 JSONArray feed = page.getPosts(pageId);
 
                 if (feed != null) {
+                    int count = 0;
                     for (int i = 0; i < feed.length(); i++) {
                         // Extract each post's data from feed
                         JSONObject pageObject = feed.getJSONObject(i);
                         // Skip if post does not contain message
                         if (!pageObject.has("message")) continue;
                         Post post = new Post(pageObject);
-
-                        System.out.println("[awesomeFb] Processing post " + post.getId());
 
                         // Get list of comments as JSON array
                         List<Comment> comments = post.getComments();
@@ -68,7 +67,9 @@ public class FacebookFocusedCrawler {
 
                         // Save post data to database
                         mDatabaseManager.insertPost(post);
+                        count++;
                     }
+                    System.out.println("[awesomeFb] " + count + " posts processed.");
                 }
 
                 // Mark page id as processed
