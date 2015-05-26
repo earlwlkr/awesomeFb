@@ -1,5 +1,6 @@
 package awesomefb;
 
+import com.mongodb.util.JSON;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -11,7 +12,7 @@ import java.io.IOException;
 public class FacebookManager {
     private static FacebookManager instance = null;
     private final String
-            mAccessToken = "CAAJK2NXosZAABAPjvopDAeoFgmBFZB98ixFdop1sFGiBKsZB2ZAZCrPgVein9u6lxxG28fDHELyvE1Unyvmi2XSkaG5wuIflAYTc2vp7DT4xkD6j9lFN1l60la0sVsLbPRysxbOV6kmbAKpLPXbvza4Rb1bW5k9gu0ZBZARbI4ZBcUYwlb5Wat2OhZC4zaqEoXZCDSLAy6CTZBSvXtNujkGRipF";
+            ACCESS_TOKEN = "CAAJK2NXosZAABAPjvopDAeoFgmBFZB98ixFdop1sFGiBKsZB2ZAZCrPgVein9u6lxxG28fDHELyvE1Unyvmi2XSkaG5wuIflAYTc2vp7DT4xkD6j9lFN1l60la0sVsLbPRysxbOV6kmbAKpLPXbvza4Rb1bW5k9gu0ZBZARbI4ZBcUYwlb5Wat2OhZC4zaqEoXZCDSLAy6CTZBSvXtNujkGRipF";
 
     public static FacebookManager getInstance() {
         if (instance == null) {
@@ -22,14 +23,24 @@ public class FacebookManager {
 
     protected FacebookManager() {}
 
-    public JSONArray getPosts(String pageName) {
-        JSONObject obj = new JSONObject();
+    public JSONObject request(String node, Object params) {
+        String apiEndpoint = "https://graph.facebook.com/v2.3/";
+        String url = apiEndpoint + node + "?";
+        if (params != null) {
+            url += params + "&";
+        }
+        url += "access_token=" + ACCESS_TOKEN;
+
         try {
-            obj = JsonReader.readJsonFromUrl("https://graph.facebook.com/" + pageName
-                    + "/feed?fields=id,from,message,created_time,comments&access_token=" + mAccessToken);
+            JSONObject obj = JsonReader.readJsonFromUrl(url);
+            if (obj.has("error")) {
+                System.out.println(obj.getJSONObject("error").getString("message"));
+            } else {
+                return obj;
+            }
         } catch (IOException e) {
             System.out.println(e.toString());
         }
-        return obj.getJSONArray("data");
+        return null;
     }
 }
