@@ -38,7 +38,8 @@ public class DatabaseManager {
     }
 
     public void insertPost(Post post) {
-        postsCollection.insert(post.toDBObject());
+        String facebookId = post.getId();
+        postsCollection.update(new BasicDBObject("fb_id", facebookId), post.toDBObject(), true, false);
     }
 
     public void insertUser(User user) {

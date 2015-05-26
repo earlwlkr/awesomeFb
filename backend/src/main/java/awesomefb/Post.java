@@ -74,7 +74,7 @@ public class Post {
     }
 
     public BasicDBObject toDBObject() {
-        BasicDBObject doc = new BasicDBObject("id", mId)
+        BasicDBObject doc = new BasicDBObject("fb_id", mId)
                 .append("message", mMessage)
                 .append("creator", mCreator.toDBObject())
                 .append("time", mCreatedTime);
