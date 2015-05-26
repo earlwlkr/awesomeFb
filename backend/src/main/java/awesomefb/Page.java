@@ -4,6 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by earl on 5/26/2015.
@@ -28,6 +30,23 @@ public class Page {
 
     public String getName() {
         return mName;
+    }
+
+    public List<String> getLikes() {
+        if (mId == null) {
+            return null;
+        }
+        JSONObject obj = mFacebook.request(mId + "/likes", null);
+        if (!obj.has("data")) {
+            return null;
+        }
+        List<String> pages = new ArrayList<>();
+        JSONArray arr = obj.getJSONArray("data");
+        for (int i = 0, l = arr.length(); i != l; i++) {
+            JSONObject page = arr.getJSONObject(i);
+            pages.add(page.getString("id"));
+        }
+        return pages;
     }
 
     public JSONArray getPosts(String pageName) {
