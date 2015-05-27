@@ -40,7 +40,7 @@ public class Page {
         if (!obj.has("data")) {
             return null;
         }
-        List<String> pages = new ArrayList<>();
+        List<String> pages = new ArrayList<String>();
         JSONArray arr = obj.getJSONArray("data");
         for (int i = 0, l = arr.length(); i != l; i++) {
             JSONObject page = arr.getJSONObject(i);

@@ -23,11 +23,11 @@ public class FacebookFocusedCrawler {
         String rootPage = "yannews";
 
         // List of pages to crawl
-        Queue<String> queue = new LinkedList<>();
+        Queue<String> queue = new LinkedList<String>();
         queue.add(rootPage);
 
         // List of pages crawled
-        List<String> crawledPages = new ArrayList<>();
+        List<String> crawledPages = new ArrayList<String>();
 
         while (true) {
             // Get page id from queue
