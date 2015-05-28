@@ -40,11 +40,6 @@ public class Database {
         usersCollection.drop();
     }
 
-    public void insertPost(Post post) {
-        String facebookId = post.getFacebookId();
-        postsCollection.update(new BasicDBObject("fb_id", facebookId), post.toDBObject(), true, false);
-    }
-
     public void insertComment(Comment comment) {
         String facebookId = comment.getFacebookId();
         postsCollection.update(new BasicDBObject("fb_id", facebookId), comment.toDBObject(), true, false);
