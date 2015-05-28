@@ -1,5 +1,6 @@
 package awesomefb;
 
+import awesomefb.facebook.Comment;
 import awesomefb.facebook.Post;
 import awesomefb.facebook.User;
 import com.mongodb.*;
@@ -40,8 +41,13 @@ public class Database {
     }
 
     public void insertPost(Post post) {
-        String facebookId = post.getId();
+        String facebookId = post.getFacebookId();
         postsCollection.update(new BasicDBObject("fb_id", facebookId), post.toDBObject(), true, false);
+    }
+
+    public void insertComment(Comment comment) {
+        String facebookId = comment.getFacebookId();
+        postsCollection.update(new BasicDBObject("fb_id", facebookId), comment.toDBObject(), true, false);
     }
 
     public void insertUser(User user) {

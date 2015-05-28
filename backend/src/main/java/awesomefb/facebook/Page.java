@@ -53,7 +53,7 @@ public class Page {
         if (mId == null) {
             return null;
         }
-        String params = "limit=100&fields=id,from,message,created_time,comments.limit(50)";
+        String params = "limit=1&fields=id,from,message,created_time,comments.limit(1)";
         JSONObject obj = mFacebook.request(mId + "/feed", params);
         if (!obj.has("data")) {
             return null;

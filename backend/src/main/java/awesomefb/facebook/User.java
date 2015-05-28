@@ -8,8 +8,7 @@ import org.json.JSONObject;
 /**
  * Created by earl on 5/25/2015.
  */
-public class User {
-    private String mFacebookId;
+public class User extends Entity {
     private String mName;
     private boolean mIsPage;
 
@@ -19,13 +18,9 @@ public class User {
      * @param reference
      */
     public User(JSONObject reference) {
-        mFacebookId = reference.getString("id");
+        super(reference);
         mName = reference.getString("name");
         mIsPage = reference.has("category");
-    }
-
-    public String getFacebookId() {
-        return mFacebookId;
     }
 
     public String getName() {
@@ -37,7 +32,7 @@ public class User {
     }
 
     public BasicDBObject toDBObject() {
-        return new BasicDBObject("fb_id", mFacebookId)
+        return new BasicDBObject("fb_id", getFacebookId())
                 .append("name", mName)
                 .append("is_page", mIsPage)
                 ;

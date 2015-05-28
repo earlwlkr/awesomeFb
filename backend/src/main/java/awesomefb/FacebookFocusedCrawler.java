@@ -54,7 +54,11 @@ public class FacebookFocusedCrawler {
                         JSONObject pageObject = feed.getJSONObject(i);
                         // Skip if post does not contain message
                         if (!pageObject.has("message")) continue;
+
                         Post post = new Post(pageObject);
+                        // Save post data to database
+                        mDatabase.insertPost(post);
+
                         User postCreator = post.getCreator();
                         mDatabase.insertUser(postCreator);
 
@@ -69,12 +73,12 @@ public class FacebookFocusedCrawler {
                                 } else {
                                     commentCreator = facebook.updateUserDetails(commentCreator);
                                 }
+                                mDatabase.insertComment(comment);
                                 mDatabase.insertUser(commentCreator);
                             }
                         }
 
-                        // Save post data to database
-                        mDatabase.insertPost(post);
+
                         count++;
                     }
                     System.out.println("[awesomeFb] " + count + " posts processed.");
