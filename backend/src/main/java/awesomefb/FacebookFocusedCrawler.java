@@ -1,9 +1,6 @@
 package awesomefb;
 
-import awesomefb.facebook.Comment;
-import awesomefb.facebook.Page;
-import awesomefb.facebook.Post;
-import awesomefb.facebook.User;
+import awesomefb.facebook.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -24,7 +21,9 @@ public class FacebookFocusedCrawler {
     }
 
     public void run() {
-        String rootPage = "yannews";
+        Facebook facebook = Facebook.getInstance();
+
+        String rootPage = "thegioididongcom";
 
         // List of pages to crawl
         Queue<String> queue = new LinkedList<String>();
@@ -67,6 +66,8 @@ public class FacebookFocusedCrawler {
                                 // If comment creator is page, add it to queue
                                 if (commentCreator.isPage()) {
                                     queue.add(commentCreator.getFacebookId());
+                                } else {
+                                    commentCreator = facebook.updateUserDetails(commentCreator);
                                 }
                                 mDatabase.insertUser(commentCreator);
                             }
