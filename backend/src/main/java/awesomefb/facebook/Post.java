@@ -47,7 +47,7 @@ public class Post {
         mMessage = post.getString("message");
         mCreator = new User(post.getJSONObject("from"));
         mCreatedTime = parseTime(post.getString("created_time"));
-        mComments = new ArrayList<>();
+        mComments = new ArrayList<Comment>();
 
         if (post.has("comments")) {
             JSONArray commentsArray = post.getJSONObject("comments").getJSONArray("data");
