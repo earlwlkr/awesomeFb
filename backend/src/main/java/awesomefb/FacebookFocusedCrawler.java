@@ -46,7 +46,7 @@ public class FacebookFocusedCrawler {
                 List<String> pageLikes = page.getLikes();
                 queue.addAll(pageLikes.stream().filter(like -> !crawledPages.contains(like)).collect(Collectors.toList()));
                 // Get feed as JSON array
-                JSONArray feed = page.getPosts(pageId);
+                JSONArray feed = page.getPosts();
 
                 if (feed != null) {
                     int count = 0;
