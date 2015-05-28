@@ -17,8 +17,15 @@ db.once('open', function (callback) {
     };
 
     collection.find(obj, options).toArray(function(err, docs) {
-      console.dir(obj);
-      res.json(docs);
+      var collection = db.collection('users');
+    
+      var options = {
+        'limit': 50
+      };
+      var ret = docs;
+      collection.find(obj, options).toArray(function(err, docs) {
+        res.json(ret.concat(docs));
+      });
     });      
   });
 
