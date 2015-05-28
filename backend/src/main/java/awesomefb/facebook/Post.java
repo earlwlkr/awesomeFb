@@ -1,8 +1,7 @@
-package awesomefb;
+package awesomefb.facebook;
 
 import com.mongodb.BasicDBObject;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;

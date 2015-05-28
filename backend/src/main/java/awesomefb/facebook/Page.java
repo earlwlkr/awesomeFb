@@ -1,9 +1,9 @@
-package awesomefb;
+package awesomefb.facebook;
 
+import awesomefb.facebook.Facebook;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +13,10 @@ import java.util.List;
 public class Page {
     private String mId;
     private String mName;
-    private FacebookManager mFacebook;
+    private Facebook mFacebook;
 
     public Page(String idOrName) {
-        mFacebook = FacebookManager.getInstance();
+        mFacebook = Facebook.getInstance();
         JSONObject obj = mFacebook.request(idOrName, null);
         if (obj != null) {
             mId = obj.getString("id");
@@ -49,7 +49,7 @@ public class Page {
         return pages;
     }
 
-    public JSONArray getPosts(String pageName) {
+    public JSONArray getPosts() {
         if (mId == null) {
             return null;
         }

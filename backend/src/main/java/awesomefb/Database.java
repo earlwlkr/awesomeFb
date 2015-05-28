@@ -1,5 +1,7 @@
 package awesomefb;
 
+import awesomefb.facebook.Post;
+import awesomefb.facebook.User;
 import com.mongodb.*;
 
 import java.net.UnknownHostException;
@@ -7,19 +9,19 @@ import java.net.UnknownHostException;
 /**
  * Created by earl on 5/25/2015.
  */
-public class DatabaseManager {
-    private static DatabaseManager instance = null;
+public class Database {
+    private static Database instance = null;
     private DB database;
     private DBCollection postsCollection;
     private DBCollection usersCollection;
 
-    public static DatabaseManager getInstance() {
+    public static Database getInstance() {
         if (instance == null) {
             try {
                 MongoClient mongoClient = new MongoClient();
                 DB db = mongoClient.getDB("awesomefb");
 
-                instance = new DatabaseManager(db);
+                instance = new Database(db);
             } catch (UnknownHostException e) {
                 System.out.println(e.toString());
             }
@@ -27,7 +29,7 @@ public class DatabaseManager {
         return instance;
     }
 
-    protected DatabaseManager(DB database) {
+    protected Database(DB database) {
         this.database = database;
 
         postsCollection = this.database.getCollection("posts");

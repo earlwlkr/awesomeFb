@@ -1,5 +1,6 @@
-package awesomefb;
+package awesomefb.facebook;
 
+import awesomefb.Database;
 import com.mongodb.BasicDBObject;
 import org.bson.types.ObjectId;
 import org.json.JSONObject;
@@ -8,7 +9,6 @@ import org.json.JSONObject;
  * Created by earl on 5/25/2015.
  */
 public class User {
-    private String mUserId;
     private String mFacebookId;
     private String mName;
     private boolean mIsPage;
@@ -22,17 +22,6 @@ public class User {
         mFacebookId = reference.getString("id");
         mName = reference.getString("name");
         mIsPage = reference.has("category");
-        DatabaseManager databaseManager = DatabaseManager.getInstance();
-
-        BasicDBObject userObject = new BasicDBObject("fb_id", mFacebookId).append("name", mName);
-        mUserId = new ObjectId().toString();
-        userObject.put("_id", mUserId);
-
-        databaseManager.insertUser(this);
-    }
-
-    public String getUserId() {
-        return mUserId;
     }
 
     public String getFacebookId() {
@@ -48,8 +37,7 @@ public class User {
     }
 
     public BasicDBObject toDBObject() {
-        return new BasicDBObject("user_id", mUserId)
-                .append("fb_id", mFacebookId)
+        return new BasicDBObject("fb_id", mFacebookId)
                 .append("name", mName)
                 .append("is_page", mIsPage)
                 ;

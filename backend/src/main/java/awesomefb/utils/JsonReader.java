@@ -1,7 +1,6 @@
-package awesomefb;
+package awesomefb.utils;
 
 import java.io.IOException;
-import java.net.SocketException;
 import java.net.URL;
 
 import org.json.JSONException;

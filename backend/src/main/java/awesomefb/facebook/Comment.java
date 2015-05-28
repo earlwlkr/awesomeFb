@@ -1,5 +1,6 @@
-package awesomefb;
+package awesomefb.facebook;
 
+import awesomefb.facebook.User;
 import org.json.JSONObject;
 
 /**

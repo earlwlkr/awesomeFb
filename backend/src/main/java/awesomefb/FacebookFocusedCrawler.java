@@ -1,5 +1,9 @@
 package awesomefb;
 
+import awesomefb.facebook.Comment;
+import awesomefb.facebook.Page;
+import awesomefb.facebook.Post;
+import awesomefb.facebook.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -13,10 +17,10 @@ import java.util.stream.Collectors;
  * Created by earl on 5/25/2015.
  */
 public class FacebookFocusedCrawler {
-    private DatabaseManager mDatabaseManager;
+    private Database mDatabase;
 
     public FacebookFocusedCrawler() {
-        mDatabaseManager = DatabaseManager.getInstance();
+        mDatabase = Database.getInstance();
     }
 
     public void run() {
@@ -52,6 +56,8 @@ public class FacebookFocusedCrawler {
                         // Skip if post does not contain message
                         if (!pageObject.has("message")) continue;
                         Post post = new Post(pageObject);
+                        User postCreator = post.getCreator();
+                        mDatabase.insertUser(postCreator);
 
                         // Get list of comments as JSON array
                         List<Comment> comments = post.getComments();
@@ -62,11 +68,12 @@ public class FacebookFocusedCrawler {
                                 if (commentCreator.isPage()) {
                                     queue.add(commentCreator.getFacebookId());
                                 }
+                                mDatabase.insertUser(commentCreator);
                             }
                         }
 
                         // Save post data to database
-                        mDatabaseManager.insertPost(post);
+                        mDatabase.insertPost(post);
                         count++;
                     }
                     System.out.println("[awesomeFb] " + count + " posts processed.");
