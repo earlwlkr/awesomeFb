@@ -12,10 +12,6 @@ public class Entity {
         return mFacebookId;
     }
 
-    public final void setFacebookId(String mFacebookId) {
-        this.mFacebookId = mFacebookId;
-    }
-
     public Entity(JSONObject obj) {
         mFacebookId = obj.getString("id");
     }
