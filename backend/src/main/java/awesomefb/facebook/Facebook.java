@@ -2,6 +2,7 @@ package awesomefb.facebook;
 
 import awesomefb.utils.JsonReader;
 import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -16,6 +17,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by earl on 5/25/2015.
@@ -38,9 +41,7 @@ public class Facebook {
         return instance;
     }
 
-    protected Facebook() {
-        login();
-    }
+    protected Facebook() {}
 
     public JSONObject request(String node, Object params) {
         String url = API_ENDPOINT + node + "?";
@@ -58,6 +59,28 @@ public class Facebook {
         return null;
     }
 
+    public JSONObject request(String url) {
+        try {
+            JSONObject obj = JsonReader.readJsonFromUrl(url);
+            return obj;
+        } catch (IOException e) {
+            System.out.println(e.toString());
+        }
+        return null;
+    }
+
+    public List<Page> searchPages(String q) {
+        String params = "type=page&limit=100&q=" + q;
+        JSONObject obj = request("search", params);
+        JSONArray results = obj.getJSONArray("data");
+        List<Page> pages = new ArrayList<Page>();
+        for (int i = 0, l = results.length(); i < l; i++) {
+            Page page = new Page(results.getJSONObject(i));
+            pages.add(page);
+        }
+        return pages;
+    }
+
     public void login() {
         String loginUrl = "https://www.facebook.com/login.php?login_attempt=1";
 
@@ -72,22 +95,38 @@ public class Facebook {
             // 2. Construct above post's content and then send a POST request for
             // authentication
             sendPost(loginUrl, postParams);
-        } catch (IOException e) {
 
+            page = getPageContent(WEB_URL);
+            System.out.println(page);
+        } catch (IOException e) {
+            System.out.println(e.toString());
         }
     }
 
     public User updateUserDetails(User user) {
         try {
             String page = getPageContent("https://www.facebook.com/" + user.getFacebookId());
-            Document doc = Jsoup.parse(page);
-            String aboutUrl = doc.getElementsByAttributeValue("data-tab-key", "about").first().attr("href");
+            String pattern = "class=\"_6-6\" href=\"(.*?)\" data-tab-key=\"about\"";
+
+            // Create a Pattern object
+            Pattern r = Pattern.compile(pattern);
+            // Now create matcher object.
+            Matcher m = r.matcher(page);
             System.out.println(page);
 
-            page = getPageContent(aboutUrl);
-            doc = Jsoup.parse(page);
-            String gender = doc.getElementsByClass("_50f4").text();
-            System.out.println(user.getFacebookId() + " " + gender);
+            if (m.find()) {
+                String aboutUrl = m.group(1) + "?section=contact-info";
+                System.out.println(aboutUrl);
+                page = getPageContent(aboutUrl);
+                String pattern2 = "<span class=\"_50f4\">(\\w+)<";
+                Pattern r2 = Pattern.compile(pattern2);
+                Matcher m2 = r2.matcher(page);
+                System.out.println(aboutUrl);
+                if (m2.find()) {
+                    String gender = m2.group(1);
+                    System.out.println(user.getFacebookId() + " " + gender);
+                }
+            }
         } catch (IOException e) {
             System.out.println(e.toString());
         }
@@ -123,10 +162,8 @@ public class Facebook {
         wr.flush();
         wr.close();
 
-        int responseCode = conn.getResponseCode();
         System.out.println("\nSending 'POST' request to URL : " + url);
         System.out.println("Post parameters : " + postParams);
-        System.out.println("Response Code : " + responseCode);
     }
 
     private String getPageContent(String url) throws IOException {
@@ -143,15 +180,13 @@ public class Facebook {
         conn.setRequestProperty("User-Agent", USER_AGENT);
         conn.setRequestProperty("Accept",
                 "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
-        conn.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+        conn.setRequestProperty("Accept-Language", "en-US,en;q=0.5,vi;q=0.6");
         if (cookies != null) {
             for (String cookie : this.cookies) {
                 conn.addRequestProperty("Cookie", cookie.split(";", 1)[0]);
             }
         }
-        int responseCode = conn.getResponseCode();
         System.out.println("\nSending 'GET' request to URL : " + url);
-        System.out.println("Response Code : " + responseCode);
 
         String response = IOUtils.toString(conn.getInputStream());
 

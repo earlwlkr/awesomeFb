@@ -10,53 +10,53 @@ import java.util.List;
 /**
  * Created by earl on 5/26/2015.
  */
-public class Page {
-    private String mId;
+public class Page extends Entity {
     private String mName;
     private Facebook mFacebook;
 
-    public Page(String idOrName) {
-        mFacebook = Facebook.getInstance();
-        JSONObject obj = mFacebook.request(idOrName, null);
-        if (obj != null) {
-            mId = obj.getString("id");
-            mName = obj.getString("name");
-        }
-    }
+    public Page(JSONObject page) {
+        super(page);
 
-    public String getId() {
-        return mId;
+        mFacebook = Facebook.getInstance();
+        mName = page.getString("name");
     }
 
     public String getName() {
         return mName;
     }
 
-    public List<String> getLikes() {
-        if (mId == null) {
-            return null;
-        }
-        JSONObject obj = mFacebook.request(mId + "/likes", null);
+    public List<Page> getLikes() {
+        JSONObject obj = mFacebook.request(getFacebookId() + "/likes", null);
         if (!obj.has("data")) {
             return null;
         }
-        List<String> pages = new ArrayList<String>();
+        List<Page> pages = new ArrayList<Page>();
         JSONArray arr = obj.getJSONArray("data");
         for (int i = 0, l = arr.length(); i != l; i++) {
-            JSONObject page = arr.getJSONObject(i);
-            pages.add(page.getString("id"));
+            Page page = new Page(arr.getJSONObject(i));
+            pages.add(page);
         }
         return pages;
     }
 
     public JSONArray getPosts() {
-        if (mId == null) {
-            return null;
-        }
-        String params = "limit=1&fields=id,from,message,created_time,comments.limit(1)";
-        JSONObject obj = mFacebook.request(mId + "/feed", params);
+        final int POSTS_LIMIT = 50;
+        final int COMMENTS_LIMIT = 50;
+        String params = "fields=id,from,message,created_time,comments.limit(" + COMMENTS_LIMIT + ")&limit=" + POSTS_LIMIT;
+        JSONObject obj = mFacebook.request(getFacebookId() + "/feed", params);
         if (!obj.has("data")) {
             return null;
+        }
+        if (obj.has("paging")) {
+            JSONObject nextPage = mFacebook.request(obj.getJSONObject("paging").getString("next"));
+            if (!nextPage.has("data")) {
+                return obj.getJSONArray("data");
+            }
+            JSONArray nextResults = nextPage.getJSONArray("data");
+            for (int i = 0, l = nextResults.length(); i < l; i++) {
+                obj.getJSONArray("data").put(nextResults.get(i));
+            }
+            return obj.getJSONArray("data");
         }
         return obj.getJSONArray("data");
     }

@@ -21,29 +21,27 @@ public class FacebookFocusedCrawler {
     }
 
     public void run() {
-        Facebook facebook = Facebook.getInstance();
-
-        String rootPage = "thegioididongcom";
+        //Facebook facebook = Facebook.getInstance();
+        //facebook.login();
 
         // List of pages to crawl
-        Queue<String> queue = new LinkedList<String>();
-        queue.add(rootPage);
+        Queue<Page> queue = new LinkedList<Page>();
+        queue.addAll(Facebook.getInstance().searchPages("iphone"));
 
         // List of pages crawled
         List<String> crawledPages = new ArrayList<String>();
 
         while (true) {
-            // Get page id from queue
-            String pageId = queue.remove();
-            // Call request and get basic page info (id, name)
-            Page page = new Page(pageId);
-            pageId = page.getName();
+            // Get page from queue
+            Page page = queue.remove();
+            String pageId = page.getFacebookId();
 
-            // If that page exists and is not processed
-            if (page.getId() != null && !crawledPages.contains(pageId)) {
+            // If that page is not processed
+            if (!crawledPages.contains(pageId)) {
                 System.out.println("[awesomeFb] Processing page " + pageId);
-                List<String> pageLikes = page.getLikes();
-                queue.addAll(pageLikes.stream().filter(like -> !crawledPages.contains(like)).collect(Collectors.toList()));
+                List<Page> pageLikes = page.getLikes();
+                queue.addAll(pageLikes.stream().filter(like -> !crawledPages.contains(like.getFacebookId()))
+                        .collect(Collectors.toList()));
                 // Get feed as JSON array
                 JSONArray feed = page.getPosts();
 
@@ -57,7 +55,7 @@ public class FacebookFocusedCrawler {
 
                         Post post = new Post(pageObject);
                         // Save post data to database
-                        mDatabase.insertPost(post);
+                        mDatabase.insertComment(post);
 
                         User postCreator = post.getCreator();
                         mDatabase.insertUser(postCreator);
@@ -68,16 +66,13 @@ public class FacebookFocusedCrawler {
                             for (Comment comment : comments) {
                                 User commentCreator = comment.getCreator();
                                 // If comment creator is page, add it to queue
-                                if (commentCreator.isPage()) {
-                                    queue.add(commentCreator.getFacebookId());
-                                } else {
-                                    commentCreator = facebook.updateUserDetails(commentCreator);
+                                if (!commentCreator.isPage()) {
+                                    //commentCreator = facebook.updateUserDetails(commentCreator);
                                 }
                                 mDatabase.insertComment(comment);
                                 mDatabase.insertUser(commentCreator);
                             }
                         }
-
 
                         count++;
                     }
