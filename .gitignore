@@ -1,7 +1,5 @@
 *.class
 
-!backend/libs/
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -53,3 +51,5 @@ local.properties
 node_modules/
 backend/.idea/
 *.iml
+
+!backend/libs/**
