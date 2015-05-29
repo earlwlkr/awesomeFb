@@ -4,8 +4,9 @@ apply plugin:'application'
 
 mainClassName = "awesomefb.Main"
 
-sourceCompatibility = 1.5
+sourceCompatibility = 7
 version = '1.0'
+
 jar {
     manifest {
         attributes 'Implementation-Title': 'Gradle Quickstart',
