@@ -2,6 +2,7 @@ package awesomefb.facebook;
 
 import awesomefb.facebook.User;
 import com.mongodb.BasicDBObject;
+import org.bson.Document;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
@@ -33,7 +34,7 @@ public class Comment extends Entity {
             mDescription = obj.getString("description");
         }
 
-        public BasicDBObject toDBObject() {
+        public BasicDBObject toDocument() {
             BasicDBObject doc = new BasicDBObject("name", mName)
                     .append("link", mUrl)
                     .append("caption", mCaption)
@@ -77,16 +78,16 @@ public class Comment extends Entity {
         return null;
     }
 
-    public BasicDBObject toDBObject() {
-        BasicDBObject doc = new BasicDBObject("fb_id", getFacebookId())
+    public Document toDocument() {
+        Document doc = new Document("fb_id", getFacebookId())
                 .append("message", mMessage)
-                .append("creator", mCreator.toDBObject())
+                .append("creator", mCreator.toDocument())
                 .append("time_created", mCreatedTime)
                 .append("topic", mTopic)
                 .append("is_spam", mIsSpam)
                 ;
         if (mLink != null) {
-            doc.append("link", mLink.toDBObject());
+            doc.append("link", mLink.toDocument());
         }
         return doc;
     }

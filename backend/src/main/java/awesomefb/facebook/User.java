@@ -1,8 +1,7 @@
 package awesomefb.facebook;
 
-import awesomefb.Database;
 import com.mongodb.BasicDBObject;
-import org.bson.types.ObjectId;
+import org.bson.Document;
 import org.json.JSONObject;
 
 /**
@@ -31,8 +30,8 @@ public class User extends Entity {
         return mIsPage;
     }
 
-    public BasicDBObject toDBObject() {
-        return new BasicDBObject("fb_id", getFacebookId())
+    public Document toDocument() {
+        return new Document("fb_id", getFacebookId())
                 .append("name", mName)
                 .append("is_page", mIsPage)
                 ;
