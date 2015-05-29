@@ -15,4 +15,8 @@ public class Entity {
     public Entity(JSONObject obj) {
         mFacebookId = obj.getString("id");
     }
+
+    public Entity(String id) {
+        mFacebookId = id;
+    }
 }

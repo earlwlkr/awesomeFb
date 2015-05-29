@@ -14,6 +14,13 @@ public class Page extends Entity {
     private String mName;
     private Facebook mFacebook;
 
+    public Page(String id, String name) {
+        super(id);
+
+        mFacebook = Facebook.getInstance();
+        mName = name;
+    }
+
     public Page(JSONObject page) {
         super(page);
 
