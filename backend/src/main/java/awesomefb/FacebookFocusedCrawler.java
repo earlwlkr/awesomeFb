@@ -43,7 +43,7 @@ public class FacebookFocusedCrawler {
         //Facebook facebook = Facebook.getInstance();
         //facebook.login();
 
-        if (RESET) {
+        if (RESET || mDatabase.getQueue().isEmpty()) {
             mDatabase.drop();
 
             // List of pages to crawl
@@ -98,11 +98,10 @@ public class FacebookFocusedCrawler {
                         List<Comment> comments = post.getComments();
                         if (comments != null) {
                             for (Comment comment : comments) {
-                                commentsCount++;
                                 mDatabase.insertComment(comment);
+                                commentsCount++;
                             }
                         }
-
                         count++;
                     }
                     System.out.println("[awesomeFb] " + count + " posts processed.");
