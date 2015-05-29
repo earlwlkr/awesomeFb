@@ -8,16 +8,33 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.stream.Collectors;
 
 /**
  * Created by earl on 5/25/2015.
  */
 public class FacebookFocusedCrawler {
     private Database mDatabase;
+    private Queue<Page> mQueue;
+    private List<String> mProcessedPageIds;
 
     public FacebookFocusedCrawler() {
         mDatabase = Database.getInstance();
+    }
+
+    private Page removeFromQueue() {
+        Page page = mQueue.remove();
+        mDatabase.removeFromQueue(page);
+        return page;
+    }
+
+    private void insertQueue(Page page) {
+        mQueue.add(page);
+        mDatabase.insertQueue(page);
+    }
+
+    private void insertProcessed(String id) {
+        mProcessedPageIds.add(id);
+        mDatabase.insertProcesed(id);
     }
 
     public void run() {
@@ -25,50 +42,49 @@ public class FacebookFocusedCrawler {
 
         //Facebook facebook = Facebook.getInstance();
         //facebook.login();
-        Queue<Page> queue;
-        List<String> crawledPages;
+
         if (RESET) {
             mDatabase.drop();
 
             // List of pages to crawl
-            queue = new LinkedList<Page>();
+            mQueue = new LinkedList<Page>();
             List<Page> resultPages = Facebook.getInstance().searchPages("iphone");
             for (Page resultPage: resultPages) {
-                queue.add(resultPage);
-                mDatabase.insertQueue(resultPage);
+                insertQueue(resultPage);
             }
 
             // List of pages crawled
-            crawledPages = new ArrayList<String>();
+            mProcessedPageIds = new ArrayList<String>();
         } else {
             // Continue from last checkpoint
-            queue = mDatabase.getQueue();
-            crawledPages = mDatabase.getProcessed();
+            mQueue = mDatabase.getQueue();
+            mProcessedPageIds = mDatabase.getProcessed();
         }
 
         while (true) {
-            // Get page from queue
-            Page page = queue.remove();
-            mDatabase.removeFromQueue(page);
+            // Get page from mQueue
+            Page page = mQueue.peek();
             String pageId = page.getFacebookId();
 
             // If that page is not processed
-            if (!crawledPages.contains(pageId)) {
+            if (!mProcessedPageIds.contains(pageId)) {
                 System.out.println("[awesomeFb] Processing page " + pageId);
                 List<Page> pageLikes = page.getLikes();
                 for (Page pageLike: pageLikes) {
-                    if (!crawledPages.contains(pageLike.getFacebookId())) {
-                        queue.add(pageLike);
-                        mDatabase.insertQueue(pageLike);
+                    if (!mProcessedPageIds.contains(pageLike.getFacebookId())) {
+                        insertQueue(pageLike);
                     }
                 }
 
                 // Get feed as JSON array
                 JSONArray feed = page.getPosts();
+                int feedLength = feed.length();
+                System.out.println("[awesomeFb] " + feedLength + " posts returned.");
 
                 if (feed != null) {
                     int count = 0;
-                    for (int i = 0; i < feed.length(); i++) {
+                    int commentsCount = 0;
+                    for (int i = 0; i < feedLength; i++) {
                         // Extract each post's data from feed
                         JSONObject pageObject = feed.getJSONObject(i);
                         // Skip if post does not contain message
@@ -86,10 +102,11 @@ public class FacebookFocusedCrawler {
                         if (comments != null) {
                             for (Comment comment : comments) {
                                 User commentCreator = comment.getCreator();
-                                // If comment creator is page, add it to queue
+                                // If comment creator is page, add it to mQueue
                                 if (!commentCreator.isPage()) {
                                     //commentCreator = facebook.updateUserDetails(commentCreator);
                                 }
+                                commentsCount++;
                                 mDatabase.insertComment(comment);
                                 mDatabase.insertUser(commentCreator);
                             }
@@ -98,14 +115,15 @@ public class FacebookFocusedCrawler {
                         count++;
                     }
                     System.out.println("[awesomeFb] " + count + " posts processed.");
+                    System.out.println("[awesomeFb] " + commentsCount + " comments processed.");
                 }
 
                 // Mark page id as processed
-                crawledPages.add(pageId);
-                mDatabase.insertProcesed(pageId);
+                insertProcessed(pageId);
             }
 
-            if (queue.isEmpty()) {
+            removeFromQueue();
+            if (mQueue.isEmpty()) {
                 break;
             }
         }
