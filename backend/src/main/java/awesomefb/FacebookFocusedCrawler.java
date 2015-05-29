@@ -94,21 +94,12 @@ public class FacebookFocusedCrawler {
                         // Save post data to database
                         mDatabase.insertComment(post);
 
-                        User postCreator = post.getCreator();
-                        mDatabase.insertUser(postCreator);
-
                         // Get list of comments as JSON array
                         List<Comment> comments = post.getComments();
                         if (comments != null) {
                             for (Comment comment : comments) {
-                                User commentCreator = comment.getCreator();
-                                // If comment creator is page, add it to mQueue
-                                if (!commentCreator.isPage()) {
-                                    //commentCreator = facebook.updateUserDetails(commentCreator);
-                                }
                                 commentsCount++;
                                 mDatabase.insertComment(comment);
-                                mDatabase.insertUser(commentCreator);
                             }
                         }
 

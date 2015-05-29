@@ -95,6 +95,8 @@ public class Database {
     public void insertComment(Comment comment) {
         String facebookId = comment.getFacebookId();
         postsCollection.update(new BasicDBObject("fb_id", facebookId), comment.toDBObject(), true, false);
+        User postCreator = comment.getCreator();
+        insertUser(postCreator);
     }
 
     public void insertUser(User user) {
