@@ -21,27 +21,48 @@ public class FacebookFocusedCrawler {
     }
 
     public void run() {
+        final boolean RESET = false;
+
         //Facebook facebook = Facebook.getInstance();
         //facebook.login();
+        Queue<Page> queue;
+        List<String> crawledPages;
+        if (RESET) {
+            mDatabase.drop();
 
-        // List of pages to crawl
-        Queue<Page> queue = new LinkedList<Page>();
-        queue.addAll(Facebook.getInstance().searchPages("iphone"));
+            // List of pages to crawl
+            queue = new LinkedList<Page>();
+            List<Page> resultPages = Facebook.getInstance().searchPages("iphone");
+            for (Page resultPage: resultPages) {
+                queue.add(resultPage);
+                mDatabase.insertQueue(resultPage);
+            }
 
-        // List of pages crawled
-        List<String> crawledPages = new ArrayList<String>();
+            // List of pages crawled
+            crawledPages = new ArrayList<String>();
+        } else {
+            // Continue from last checkpoint
+            queue = mDatabase.getQueue();
+            crawledPages = mDatabase.getProcessed();
+        }
 
         while (true) {
             // Get page from queue
             Page page = queue.remove();
+            mDatabase.removeFromQueue(page);
             String pageId = page.getFacebookId();
 
             // If that page is not processed
             if (!crawledPages.contains(pageId)) {
                 System.out.println("[awesomeFb] Processing page " + pageId);
                 List<Page> pageLikes = page.getLikes();
-                queue.addAll(pageLikes.stream().filter(like -> !crawledPages.contains(like.getFacebookId()))
-                        .collect(Collectors.toList()));
+                for (Page pageLike: pageLikes) {
+                    if (!crawledPages.contains(pageLike.getFacebookId())) {
+                        queue.add(pageLike);
+                        mDatabase.insertQueue(pageLike);
+                    }
+                }
+
                 // Get feed as JSON array
                 JSONArray feed = page.getPosts();
 
@@ -81,6 +102,7 @@ public class FacebookFocusedCrawler {
 
                 // Mark page id as processed
                 crawledPages.add(pageId);
+                mDatabase.insertProcesed(pageId);
             }
 
             if (queue.isEmpty()) {
