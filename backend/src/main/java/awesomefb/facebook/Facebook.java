@@ -49,14 +49,7 @@ public class Facebook {
             url += params + "&";
         }
         url += "access_token=" + ACCESS_TOKEN;
-
-        try {
-            JSONObject obj = JsonReader.readJsonFromUrl(url);
-            return obj;
-        } catch (IOException e) {
-            System.out.println(e.toString());
-        }
-        return null;
+        return request(url);
     }
 
     public JSONObject request(String url) {
