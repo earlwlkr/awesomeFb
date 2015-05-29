@@ -47,17 +47,21 @@ public class Page extends Entity {
         if (!obj.has("data")) {
             return null;
         }
-        if (obj.has("paging")) {
-            JSONObject nextPage = mFacebook.request(obj.getJSONObject("paging").getString("next"));
-            if (!nextPage.has("data")) {
-                return obj.getJSONArray("data");
+
+        JSONArray postsJson = obj.getJSONArray("data");
+        while (true) {
+            if (!obj.has("paging")) {
+                break;
             }
-            JSONArray nextResults = nextPage.getJSONArray("data");
+            obj = mFacebook.request(obj.getJSONObject("paging").getString("next"));
+            if (!obj.has("data")) {
+                break;
+            }
+            JSONArray nextResults = obj.getJSONArray("data");
             for (int i = 0, l = nextResults.length(); i < l; i++) {
-                obj.getJSONArray("data").put(nextResults.get(i));
+                postsJson.put(nextResults.get(i));
             }
-            return obj.getJSONArray("data");
         }
-        return obj.getJSONArray("data");
+        return postsJson;
     }
 }
