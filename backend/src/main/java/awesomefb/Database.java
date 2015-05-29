@@ -8,6 +8,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.UpdateOptions;
+import static com.mongodb.client.model.Filters.*;
 import org.bson.Document;
 
 import java.util.ArrayList;
@@ -93,13 +94,13 @@ public class Database {
 
     public void insertComment(Comment comment) {
         String facebookId = comment.getFacebookId();
-        postsCollection.updateOne(new Document("fb_id", facebookId), comment.toDocument(), new UpdateOptions().upsert(true));
+        postsCollection.replaceOne(eq("fb_id", facebookId), comment.toDocument(), new UpdateOptions().upsert(true));
         User postCreator = comment.getCreator();
         insertUser(postCreator);
     }
 
     public void insertUser(User user) {
         String facebookId = user.getFacebookId();
-        usersCollection.updateOne(new Document("fb_id", facebookId), user.toDocument(), new UpdateOptions().upsert(true));
+        usersCollection.replaceOne(eq("fb_id", facebookId), user.toDocument(), new UpdateOptions().upsert(true));
     }
 }
