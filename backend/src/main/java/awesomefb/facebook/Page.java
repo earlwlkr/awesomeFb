@@ -1,6 +1,5 @@
 package awesomefb.facebook;
 
-import awesomefb.facebook.Facebook;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

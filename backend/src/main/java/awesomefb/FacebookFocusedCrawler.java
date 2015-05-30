@@ -4,6 +4,7 @@ import awesomefb.facebook.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,7 +15,9 @@ import java.util.Queue;
  */
 public class FacebookFocusedCrawler {
     private Database mDatabase;
+    // List of pages to crawl
     private Queue<Page> mQueue;
+    // List of pages crawled
     private List<String> mProcessedPageIds;
 
     public FacebookFocusedCrawler() {
@@ -38,22 +41,43 @@ public class FacebookFocusedCrawler {
     }
 
     public void run() {
+        labelSentiment();
+        //crawl();
+    }
+
+    public void labelSentiment() {
+        int count = 0;
+        List<Comment> comments = mDatabase.getComments();
+        SentimentClassifier classifier = new SentimentClassifier();
+        try {
+            classifier.train();
+            for (Comment comment: comments) {
+                String sentiment = classifier.classify(comment.getMessage());
+                comment.setSentiment(sentiment);
+                mDatabase.insertComment(comment);
+                System.out.println(count++);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void crawl() {
         final boolean RESET = false;
 
+        String topic = "iphone";
         //Facebook facebook = Facebook.getInstance();
         //facebook.login();
 
         if (RESET || mDatabase.getQueue().isEmpty()) {
             mDatabase.drop();
 
-            // List of pages to crawl
             mQueue = new LinkedList<Page>();
-            List<Page> resultPages = Facebook.getInstance().searchPages("iphone");
+            List<Page> resultPages = Facebook.getInstance().searchPages(topic);
             for (Page resultPage: resultPages) {
                 insertQueue(resultPage);
             }
 
-            // List of pages crawled
             mProcessedPageIds = new ArrayList<String>();
         } else {
             // Continue from last checkpoint
@@ -91,6 +115,7 @@ public class FacebookFocusedCrawler {
                         if (!pageObject.has("message")) continue;
 
                         Post post = new Post(pageObject);
+                        post.setTopic(topic);
                         // Save post data to database
                         mDatabase.insertComment(post);
 
@@ -98,6 +123,7 @@ public class FacebookFocusedCrawler {
                         List<Comment> comments = post.getComments();
                         if (comments != null) {
                             for (Comment comment : comments) {
+                                comment.setTopic(topic);
                                 mDatabase.insertComment(comment);
                                 commentsCount++;
                             }
