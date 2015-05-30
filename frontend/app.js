@@ -1,6 +1,9 @@
 var app = require('express')(),
     mongoose = require('mongoose');
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+
 mongoose.connect('mongodb://localhost:27017/awesomefb');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -17,15 +20,10 @@ db.once('open', function (callback) {
     };
 
     collection.find(obj, options).toArray(function(err, docs) {
-      var collection = db.collection('users');
-    
-      var options = {
-        'limit': 50
-      };
       var ret = docs;
-      collection.find(obj, options).toArray(function(err, docs) {
-        res.json(ret.concat(docs));
-      });
+      res.render('layout',
+        { title : 'Home' }
+        );
     });      
   });
 
