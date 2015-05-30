@@ -1,15 +1,35 @@
 doctype
 html
   head
-    title #{title} - My Site
-    link(rel='stylesheet', href='../vendors/semantic-ui/css/semantic.css')
+    title awesomeFb
+    link(rel='stylesheet', href='/vendors/semantic-ui/css/semantic.css')
   body
-    header
-      h1 My Site
-    .container
-      .main-content
-        block content
-      .sidebar
-        block sidebar
-    footer
-      p Running on node with Express, Jade and Stylus
+    .ui.grid
+      .ui.centered.twelve.wide.column
+        header
+          h1 My Site
+        .container
+          .main-content
+            block content
+          .sidebar
+            block sidebar
+          table.ui.sortable.celled.table
+            thead
+              tr
+                th ID
+                th Nội dung
+                th Thời điểm
+                th Chủ đề
+                th Spam
+                th Đánh giá
+            tbody
+              each comment in comments
+                tr
+                  td= comment.fb_id
+                  td= comment.message
+                  td= comment.time_created
+                  td= comment.topic
+                  td= comment.is_spam
+                  td= comment.sentiment
+        footer
+          p Running on node with Express, Jade and Stylus
