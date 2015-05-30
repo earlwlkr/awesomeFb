@@ -20,8 +20,12 @@ public class FacebookFocusedCrawler {
     // List of pages crawled
     private List<String> mProcessedPageIds;
 
+    private SentimentClassifier mClassifier;
+
     public FacebookFocusedCrawler() {
         mDatabase = Database.getInstance();
+
+        mClassifier = new SentimentClassifier();
     }
 
     private Page removeFromQueue() {
@@ -41,24 +45,22 @@ public class FacebookFocusedCrawler {
     }
 
     public void run() {
-        labelSentiment();
-        //crawl();
+        System.out.println("Training classifier...");
+        mClassifier.train();
+        System.out.println("Done training.");
+        crawl();
     }
 
     public void labelSentiment() {
         int count = 0;
         List<Comment> comments = mDatabase.getComments();
         SentimentClassifier classifier = new SentimentClassifier();
-        try {
-            classifier.train();
-            for (Comment comment: comments) {
-                String sentiment = classifier.classify(comment.getMessage());
-                comment.setSentiment(sentiment);
-                mDatabase.insertComment(comment);
-                System.out.println(count++);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        classifier.train();
+        for (Comment comment: comments) {
+            String sentiment = classifier.classify(comment.getMessage());
+            comment.setSentiment(sentiment);
+            mDatabase.insertComment(comment);
+            System.out.println(count++);
         }
     }
 
@@ -104,6 +106,7 @@ public class FacebookFocusedCrawler {
                 JSONArray feed = page.getPosts();
                 int feedLength = feed.length();
                 System.out.println("[awesomeFb] " + feedLength + " posts returned.");
+                System.out.println("Processing returned JSON.");
 
                 if (feed != null) {
                     int count = 0;
@@ -116,6 +119,8 @@ public class FacebookFocusedCrawler {
 
                         Post post = new Post(pageObject);
                         post.setTopic(topic);
+                        String sentiment = mClassifier.classify(post.getMessage());
+                        post.setSentiment(sentiment);
                         // Save post data to database
                         mDatabase.insertComment(post);
 
@@ -124,6 +129,8 @@ public class FacebookFocusedCrawler {
                         if (comments != null) {
                             for (Comment comment : comments) {
                                 comment.setTopic(topic);
+                                sentiment = mClassifier.classify(comment.getMessage());
+                                comment.setSentiment(sentiment);
                                 mDatabase.insertComment(comment);
                                 commentsCount++;
                             }

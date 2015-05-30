@@ -44,7 +44,7 @@ public class SentimentClassifier {
         }
     }
 
-    public String classify(String txt) throws IOException {
+    public String classify(String txt) {
         Classification classification = mClassifier.classify(txt);
         String resultCategory = classification.bestCategory();
         return resultCategory;
