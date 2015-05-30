@@ -8,11 +8,11 @@ Thiết kế và xây dựng công cụ để lấy các thảo luận (comment)
 - [ ] Thu thập và lưu trữ các nội dung thảo luận theo chủ đề cho trước, mỗi một
 thảo luận có các nội dung sau: 
   - [ ] Thông tin người gởi thảo luận (Tên, email, phone, giới tính...)
-  - [ ] Nội dung
-  - [ ] Thời gian
+  - [x] Nội dung
+  - [x] Thời gian
   - [ ] Vị trí
   - [ ] Platform (gửi bằng di động, destop,...)
-  - [ ] Link gốc của thảo luận
+  - [x] Link gốc của thảo luận
   - [ ] Chủ đề
 - [ ] Truy vấn nội dung dựa theo chủ đề - thời gian: hiển thị các bài thảo luận, thống
 kê số lượng thảo luận, số lượng người tham gia thảo luận, giới tính...
