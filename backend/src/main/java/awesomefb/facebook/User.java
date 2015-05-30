@@ -1,6 +1,5 @@
 package awesomefb.facebook;
 
-import com.mongodb.BasicDBObject;
 import org.bson.Document;
 import org.json.JSONObject;
 
@@ -11,15 +10,16 @@ public class User extends Entity {
     private String mName;
     private boolean mIsPage;
 
-    /**
-     * Saves user data into users collection,
-     * returns DBObject with newly inserted id and some basic info (FB ID, name)
-     * @param reference
-     */
     public User(JSONObject reference) {
         super(reference);
         mName = reference.getString("name");
         mIsPage = reference.has("category");
+    }
+
+    public User(String id, String name, boolean isPage) {
+        super(id);
+        mName = name;
+        mIsPage = isPage;
     }
 
     public String getName() {
