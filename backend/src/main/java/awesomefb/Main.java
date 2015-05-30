@@ -13,6 +13,6 @@ public class Main {
     public static void main(String[] args) {
         // Topics: samsung, iphone, coffee, galaxy
         FacebookFocusedCrawler crawler = new FacebookFocusedCrawler();
-        crawler.run();
+        crawler.run("samsung");
     }
 }

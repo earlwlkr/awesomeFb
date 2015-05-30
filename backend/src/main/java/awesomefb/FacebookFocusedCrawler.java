@@ -44,11 +44,11 @@ public class FacebookFocusedCrawler {
         mDatabase.insertProcesed(id);
     }
 
-    public void run() {
+    public void run(String topic) {
         System.out.println("Training classifier...");
         mClassifier.train();
         System.out.println("Done training.");
-        crawl();
+        crawl(topic);
     }
 
     public void labelSentiment() {
@@ -64,10 +64,10 @@ public class FacebookFocusedCrawler {
         }
     }
 
-    public void crawl() {
+    public void crawl(String topic) {
+        System.out.println("Crawling for topic " + topic);
         final boolean RESET = false;
 
-        String topic = "iphone";
         //Facebook facebook = Facebook.getInstance();
         //facebook.login();
 
