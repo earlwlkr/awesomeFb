@@ -1,7 +1,5 @@
 package awesomefb.facebook;
 
-import awesomefb.facebook.User;
-import com.mongodb.BasicDBObject;
 import org.bson.Document;
 import org.json.JSONObject;
 
@@ -19,6 +17,7 @@ public class Comment extends Entity {
     private Date mCreatedTime;
     private String mTopic;
     private boolean mIsSpam;
+    private String mSentiment;
     private ExternalLink mLink;
 
     private class ExternalLink {
@@ -34,8 +33,8 @@ public class Comment extends Entity {
             mDescription = obj.getString("description");
         }
 
-        public BasicDBObject toDocument() {
-            BasicDBObject doc = new BasicDBObject("name", mName)
+        public Document toDocument() {
+            Document doc = new Document("name", mName)
                     .append("link", mUrl)
                     .append("caption", mCaption)
                     .append("description", mDescription)
@@ -53,6 +52,14 @@ public class Comment extends Entity {
         return mCreator;
     }
 
+    public void setTopic(String topic) {
+        mTopic = topic;
+    }
+
+    public void setSentiment(String sen) {
+        mSentiment = sen;
+    }
+
     public Comment(JSONObject comment) {
         super(comment);
         mMessage = comment.getString("message");
@@ -65,6 +72,19 @@ public class Comment extends Entity {
 
         mTopic = "";
         mIsSpam = false;
+        mSentiment = "";
+    }
+
+    public Comment(Document comment) {
+        super(comment.getString("fb_id"));
+        mMessage = comment.getString("message");
+        JSONObject userObject = new JSONObject(comment.toJson()).getJSONObject("creator");
+        mCreator = new User(userObject.getString("fb_id"), userObject.getString("name"), userObject.getBoolean("is_page"));
+        mCreatedTime = comment.getDate("time_created");
+
+        mTopic = comment.getString("topic");
+        mIsSpam = comment.getBoolean("is_spam");
+        mSentiment = comment.getString("sentiment");
     }
 
     private Date parseTime(String dateString) {
@@ -85,6 +105,7 @@ public class Comment extends Entity {
                 .append("time_created", mCreatedTime)
                 .append("topic", mTopic)
                 .append("is_spam", mIsSpam)
+                .append("sentiment", mSentiment)
                 ;
         if (mLink != null) {
             doc.append("link", mLink.toDocument());

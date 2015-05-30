@@ -8,13 +8,14 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.UpdateOptions;
-import static com.mongodb.client.model.Filters.*;
 import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
+import static com.mongodb.client.model.Filters.eq;
 
 /**
  * Created by earl on 5/25/2015.
@@ -84,6 +85,20 @@ public class Database {
             cursor.close();
         }
         return queue;
+    }
+
+    public List<Comment> getComments() {
+        List<Comment> comments = new ArrayList<Comment>();
+        MongoCursor<Document> cursor = postsCollection.find().iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document doc = cursor.next();
+                comments.add(new Comment(doc));
+            }
+        } finally {
+            cursor.close();
+        }
+        return comments;
     }
 
     public void removeFromQueue(Page page) {
