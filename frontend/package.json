@@ -1,11 +1,21 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "NodeJS app to display crawled data",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/earlwlkr/awesomeFb.git"
+  },
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.4",
+    "jade": "^1.10.0",
+    "mongodb": "^2.0.33",
+    "mongoose": "^4.0.4"
+  }
 }
