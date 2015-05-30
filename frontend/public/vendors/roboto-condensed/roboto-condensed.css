@@ -1,0 +1,52 @@
+/**
+ * Include Roboto Condensed font in your project
+ * 
+ * Download Roboto Condensed ttf files from Google Fonts and place it in the same directory of this CSS file
+ * You can then use this font in your project by setting
+ * font-face: "Roboto Condensed", Helvetica, Arial, sans-serif;
+ *
+ * @author Mattia Migliorini (deshack)
+ * @license MIT
+ */
+
+/* Light */
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: normal;
+	font-weight: 300;
+	src: local('fonts/Roboto Condensed Light'), local('fonts/RobotoCondensed-Light'), url("RobotoCondensed-Light.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: italic;
+	font-weight: 300;
+	src: local('fonts/Roboto Condensed Light Italic'), local('fonts/RobotoCondensed-LightItalic'), url("RobotoCondensed-LightItalic.ttf") format('truetype');
+}
+
+/* Normal */
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: normal;
+	font-weight: 400;
+	src: local('fonts/Roboto Condensed Regular'), local('fonts/RobotoCondensed-Regular'), url("RobotoCondensed-Regular.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: italic;
+	font-weight: 400;
+	src: local('fonts/Roboto Condensed Italic'), local('fonts/RobotoCondensed-Italic'), url("RobotoCondensed-Italic.ttf") format('truetype');
+}
+
+/* Bold */
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: normal;
+	font-weight: 700;
+	src: local('fonts/Roboto Condensed Bold'), local('fonts/RobotoCondensed-Bold'), url("RobotoCondensed-Bold.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: italic;
+	font-weight: 700;
+	src: local('fonts/Roboto Condensed Bold Italic'), local('fonts/RobotoCondensed-BoldItalic'), url("RobotoCondensed-BoldItalic.ttf") format('truetype');
+}
