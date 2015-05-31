@@ -1,7 +1,7 @@
 if comments == null
   ui.loading.segment
 else
-  table.ui.loading.sortable.celled.table
+  table.ui.compact.loading.sortable.celled.table
     thead
       tr
         th ID
@@ -15,7 +15,8 @@ else
       each comment in comments
         tr
           td
-            a(href='https://facebook.com/' + comment.fb_id)= comment.fb_id
+            - var actualId = comment.fb_id.split('_')[0]
+            a(href='https://facebook.com/' + actualId)= actualId
           td
             a(href='https://facebook.com/' + comment.creator.fb_id)= comment.creator.name
           td= comment.message
