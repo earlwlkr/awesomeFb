@@ -55,3 +55,4 @@ backend/.idea/
 !backend/libs/**
 backup/
 backend/train_datasets/
+frontend/.idea/

@@ -1,0 +1,44 @@
+.ui.loading.form
+  .three.fields
+    .field
+      label Chủ đề
+      .ui.selection.dropdown
+        input(type='hidden', name='topic')
+        .default.text Chủ đề
+        i.dropdown.icon
+        .menu
+          each topic in filters.topics
+            .item(data-value=topic)
+              = topic
+    .field
+      label Lọc spam
+      .ui.selection.dropdown
+        input(type='hidden', name='spam')
+        .default.text Lọc spam
+        i.dropdown.icon
+        .menu
+          .item(data-value='all') Tất cả
+          .item(data-value='yes') Có
+          .item(data-value='no') Không
+    .field
+      label Đánh giá
+      .ui.selection.dropdown
+        input(type='hidden', name='sentiment')
+        .default.text Đánh giá
+        i.dropdown.icon
+        .menu
+          each sentiment in filters.sentiments
+            .item(data-value=sentiment)
+              = sentiment
+  .twelve.fields
+    .six.wide.field
+      label Từ ngày
+      div(style='position:relative')
+        input(type='text', data-value=filters.min_date).datepicker
+
+    .six.wide.field
+      label Đến ngày
+      div(style='position:relative')
+        input(type='text', data-value=filters.max_date).datepicker
+
+  .ui.facebook.button Tìm

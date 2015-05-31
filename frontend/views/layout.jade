@@ -5,15 +5,25 @@ html
     link(rel='stylesheet', href='/vendors/semantic-ui/css/semantic.css')
     link(rel='stylesheet', href='/vendors/open-sans/open-sans.css')
     link(rel='stylesheet', href='/vendors/roboto-condensed/roboto-condensed.css')
+    link(rel='stylesheet', href='/vendors/pickadate/themes/classic.css')
+    link(rel='stylesheet', href='/vendors/pickadate/themes/classic.date.css')
+    link(rel='stylesheet', href='/vendors/pickadate/themes/classic.time.css')
     link(rel='stylesheet', href='/css/main.css')
   body
-    .ui.grid
-      .ui.centered.twelve.wide.column
+    .ui.grid.page
+      .ui.centered.column
         header
-          h1 awesomeFb
+          .ui.segment
+            h1 awesomeFb
 
-        .container
-          
+        .ui.segment
+          h2.ui.dividing.header Bộ lọc
+          #filters
+            div(style='height:200px')
+              .ui.loading.form
+        
+        .ui.segment
+          h2.ui.dividing.header Kết quả
           table.ui.sortable.celled.table
             thead
               tr
@@ -28,9 +38,17 @@ html
                 tr
                   td= comment.fb_id
                   td= comment.message
-                  td= comment.time_created
+                  td= comment.time_created.toUTCString()
                   td= comment.topic
                   td= comment.is_spam
                   td= comment.sentiment
         footer
           p Running on node with Express, Jade and Stylus
+
+    script(src='/vendors/jquery/jquery-2.1.4.js')
+    script(src='/vendors/semantic-ui/js/semantic.js')
+    script(src='/vendors/pickadate/picker.js')
+    script(src='/vendors/pickadate/picker.date.js')
+    script(src='/vendors/pickadate/picker.time.js')
+    script(src='/vendors/pickadate/translations/vi_VN.js')
+    script(src='/js/main.js')
