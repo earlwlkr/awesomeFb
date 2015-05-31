@@ -1,14 +1,16 @@
-table.ui.loading.sortable.celled.table
-   thead
-      tr
-         th ID
-         th Nội dung
-         th Ngày gửi
-         th Chủ đề
-         th Spam
-         th Đánh giá
-   tbody
-      if comments != null
+if comments == null
+   ui.loading.segment
+else
+   table.ui.loading.sortable.celled.table
+      thead
+         tr
+            th ID
+            th Nội dung
+            th Ngày gửi
+            th Chủ đề
+            th Spam
+            th Đánh giá
+      tbody
          each comment in comments
             tr
                td= comment.fb_id

@@ -71,8 +71,15 @@ db.once('open', function (callback) {
       obj['sentiment'] = req.query.sentiment;
     }
 
-    Comment.find(obj).limit(50).exec(function(err, result) {
+    if (req.query.start != null) {
+      obj['time_created'] = {
+        $gte: req.query.start,
+        $lte: req.query.end
+      };
+    }
+    Comment.find(obj).limit(50).exec(function (err, result) {
       console.log(obj);
+      console.log(result.length);
       var renderedTemplate = jadeResults({comments: result});
       res.send(renderedTemplate);
     });

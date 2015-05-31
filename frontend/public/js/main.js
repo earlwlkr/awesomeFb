@@ -1,3 +1,4 @@
+var startDate, endDate;
 jQuery(document).ready(function() {
   $.ajax({
     url: '/filters',
@@ -5,9 +6,12 @@ jQuery(document).ready(function() {
       $('#filters').html(result);
       $('.ui.form').removeClass('loading');
       $('.ui.dropdown').dropdown();
-      $('.datepicker').pickadate({
+      startDate = $('#startDate').pickadate({
         formatSubmit: 'dd/mm/yyyy'
-      });
+      }).pickadate('picker');
+      endDate = $('#endDate').pickadate({
+        formatSubmit: 'dd/mm/yyyy'
+      }).pickadate('picker');
     }
   });
 
@@ -24,7 +28,9 @@ $(document).on('click', '#btnRun', function(e) {
   var
       topic = $('#topic').val(),
       spam = $('#spam').val(),
-      sentiment = $('#sentiment').val()
+      sentiment = $('#sentiment').val(),
+      start = startDate.get('select', 'mm dd yyyy'),
+      end = endDate.get('select', 'mm dd yyyy')
   ;
   var params = {};
   if (topic != '') {
@@ -36,6 +42,8 @@ $(document).on('click', '#btnRun', function(e) {
   if (sentiment != '') {
     params['sentiment'] = sentiment;
   }
+  params['start'] = start;
+  params['end'] = end;
   $.ajax({
     url: '/comments',
     data: params,
