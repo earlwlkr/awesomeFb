@@ -1,22 +1,26 @@
 if comments == null
-   ui.loading.segment
+  ui.loading.segment
 else
-   table.ui.loading.sortable.celled.table
-      thead
-         tr
-            th ID
-            th Nội dung
-            th.date Ngày gửi
-            th Chủ đề
-            th Spam
-            th Đánh giá
-      tbody
-         each comment in comments
-            tr
-               td= comment.fb_id
-               td= comment.message
-               td= comment.time_created.toUTCString()
-               td= comment.topic
-               td= comment.is_spam
-               td= comment.sentiment
+  table.ui.loading.sortable.celled.table
+    thead
+      tr
+        th ID
+        th Người gửi
+        th Nội dung
+        th.date Ngày gửi
+        th Chủ đề
+        th Spam
+        th Đánh giá
+    tbody
+      each comment in comments
+        tr
+          td
+            a(href='https://facebook.com/' + comment.fb_id)= comment.fb_id
+          td
+            a(href='https://facebook.com/' + comment.creator.fb_id)= comment.creator.name
+          td= comment.message
+          td= comment.time_created.toUTCString()
+          td= comment.topic
+          td= comment.is_spam
+          td= comment.sentiment
 
