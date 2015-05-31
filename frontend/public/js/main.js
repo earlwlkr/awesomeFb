@@ -14,10 +14,17 @@ jQuery(document).ready(function() {
       }).pickadate('picker');
 
       $('.error.message').hide();
-
       $('.message .close').on('click', function() {
         $(this).closest('.message').fadeOut();
       });
+    }
+  });
+  $('a.tabular.menu.item').tab();
+
+  $.ajax({
+    url: '/stats',
+    success: function(result) {
+      $('#stats').html(result);
     }
   });
 

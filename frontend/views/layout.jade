@@ -10,21 +10,33 @@ html
     link(rel='stylesheet', href='/vendors/pickadate/themes/classic.time.css')
     link(rel='stylesheet', href='/css/main.css')
   body
-    .ui.grid.page
+    .ui.grid.page.segment
       .ui.centered.column
         header
-          .ui.segment
-            h1 awesomeFb
+          h1 awesomeFb
 
-        .ui.segment
-          h2.ui.dividing.header Bộ lọc
-          #filters
-            include filters
-        
-        .ui.segment
-          h2.ui.dividing.header Kết quả
-          #results
-            include results
+        .ui.top.attached.tabular.menu
+          a.active.item(data-tab='main') Truy vấn
+          a.item(data-tab='stats') Thống kê
+
+        .ui.bottom.attached.active.tab.segment(data-tab='main')
+          .ui.segment
+            h2.ui.dividing.header Thống kê
+            #stats
+              include stats
+
+          .ui.segment
+            h2.ui.dividing.header Bộ lọc
+            #filters
+              include filters
+
+          .ui.segment
+            h2.ui.dividing.header Kết quả
+            #results
+              include results
+
+        .ui.bottom.attached.tab.segment(data-tab='stats')
+          p Hello world!
 
     script(src='/vendors/jquery/jquery-2.1.4.js')
     script(src='/vendors/semantic-ui/js/semantic.js')

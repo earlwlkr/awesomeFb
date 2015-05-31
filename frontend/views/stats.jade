@@ -1,0 +1,53 @@
+if stats != null
+  .ui.grid
+    .ui.column
+      .ui.statistics
+        .ui.yellow.statistic
+          .value
+            =stats.total
+          .label Tổng
+
+        .ui.green.statistic
+          .value
+            =stats.pos
+          .label Đồng tình
+
+        .ui.orange.statistic
+          .value
+            =stats.neg
+          .label Không đồng tình
+
+        .ui.purple.statistic
+          .value
+            =stats.unsup
+          .label Trung tính
+
+
+
+  .ui.grid
+    .ui.column
+      .ui.statistics
+        .ui.blue.statistic
+          .value
+            =stats.iphone
+          .label iPhone
+
+        .ui.pink.statistic
+          .value
+            =stats.samsung
+          .label SAMSUNG
+
+        .ui.red.statistic
+          .value
+            =stats.coffee
+          .label Coffee
+
+        .ui.orange.statistic
+          .value
+            =stats.galaxy
+          .label Galaxy
+
+        .ui.red.statistic
+          .value
+            =stats.spam
+          .label Bài spam

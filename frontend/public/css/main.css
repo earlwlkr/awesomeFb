@@ -9,6 +9,12 @@ body, .ui.button,
 .ui.form input[type="tel"], 
 .ui.form input[type="time"], 
 .ui.form input[type="text"], 
-.ui.form input[type="url"] {
+.ui.form input[type="url"],
+.ui.statistics .statistic > .label, .ui.statistic > .label,
+.ui.statistics .statistic > .value, .ui.statistic > .value {
   font-family: 'Roboto Condensed';
+}
+
+.ui.statistics .statistic > .value, .ui.statistic > .value {
+  font-size: 4rem;
 }
