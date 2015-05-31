@@ -7,9 +7,10 @@
         .default.text Chủ đề
         i.dropdown.icon
         .menu
-          each topic in filters.topics
-            .item(data-value=topic)
-              = topic
+          if filters != null
+            each topic in filters.topics
+              .item(data-value=topic)
+                = topic
     .field
       label Lọc spam
       .ui.selection.dropdown
@@ -27,18 +28,19 @@
         .default.text Đánh giá
         i.dropdown.icon
         .menu
-          each sentiment in filters.sentiments
-            .item(data-value=sentiment)
-              = sentiment
+          if filters != null
+            each sentiment in filters.sentiments
+              .item(data-value=sentiment)
+                = sentiment
   .twelve.fields
     .six.wide.field
       label Từ ngày
       div(style='position:relative')
-        input(type='text', data-value=filters.min_date).datepicker
+        input(type='text', data-value= filters ? filters.min_date : '').datepicker
 
     .six.wide.field
       label Đến ngày
       div(style='position:relative')
-        input(type='text', data-value=filters.max_date).datepicker
+        input(type='text', data-value= filters ? filters.max_date : '').datepicker
 
   .ui.facebook.button Tìm
