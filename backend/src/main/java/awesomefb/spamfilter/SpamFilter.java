@@ -34,7 +34,7 @@ public class SpamFilter {
 	}
 
 	// Singleton
-	public SpamFilter getInstance() {
+	public static SpamFilter getInstance() {
 		if (instance == null)
 			instance = new SpamFilter();
 		return instance;

@@ -1,6 +1,8 @@
 package awesomefb;
 
 import awesomefb.facebook.*;
+import awesomefb.spamfilter.SpamFilter;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -21,11 +23,15 @@ public class FacebookFocusedCrawler {
     private List<String> mProcessedPageIds;
 
     private SentimentClassifier mClassifier;
-
+    private SpamFilter mSpamFilter;
+    
     public FacebookFocusedCrawler() {
         mDatabase = Database.getInstance();
 
         mClassifier = new SentimentClassifier();
+        
+        mSpamFilter = SpamFilter.getInstance();
+        
     }
 
     private Page removeFromQueue() {
