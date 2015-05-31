@@ -57,7 +57,7 @@ db.once('open', function (callback) {
 
   app.get('/comments', function(req, res) {
 
-    var obj = {};
+    var obj = {}, limit = 50;
 
     if (req.query.topic != null && req.query.topic != 'Tất cả') {
       obj['topic'] = req.query.topic;
@@ -77,7 +77,11 @@ db.once('open', function (callback) {
         $lte: req.query.end
       };
     }
-    Comment.find(obj).limit(50).exec(function (err, result) {
+    if (req.query.limit != null) {
+      limit = req.query.limit;
+    }
+
+    Comment.find(obj).limit(limit).exec(function (err, result) {
       console.log(obj);
       console.log(result.length);
       var renderedTemplate = jadeResults({comments: result});

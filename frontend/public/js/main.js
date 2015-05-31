@@ -12,6 +12,12 @@ jQuery(document).ready(function() {
       endDate = $('#endDate').pickadate({
         formatSubmit: 'dd/mm/yyyy'
       }).pickadate('picker');
+
+      $('.error.message').hide();
+
+      $('.message .close').on('click', function() {
+        $(this).closest('.message').fadeOut();
+      });
     }
   });
 
@@ -29,6 +35,14 @@ jQuery(document).ready(function() {
 });
 
 $(document).on('click', '#btnRun', function(e) {
+  var limit = $('#limit').val();
+  if (limit < 1) {
+    $('.error.message').show();
+    $('#limit').parent().addClass('error');
+    return;
+  }
+  $('.error.message').hide();
+  $('#limit').parent().removeClass('error');
   var
       topic = $('#topic').val(),
       spam = $('#spam').val(),
@@ -46,8 +60,11 @@ $(document).on('click', '#btnRun', function(e) {
   if (sentiment != '') {
     params['sentiment'] = sentiment;
   }
+
   params['start'] = start;
   params['end'] = end;
+  params['limit'] = limit;
+
   $.ajax({
     url: '/comments',
     data: params,

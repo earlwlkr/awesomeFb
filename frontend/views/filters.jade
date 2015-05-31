@@ -1,5 +1,11 @@
 .ui.loading.form
-  .three.fields
+  .sixteen.wide.field
+    .ui.error.message
+      i.close.icon
+      .header Lỗi
+      p Giới hạn không thể nhỏ hơn 1!
+
+  .four.fields
     .field
       label Chủ đề
       .ui.selection.dropdown
@@ -12,10 +18,10 @@
               .item(data-value=topic)
                 = topic
     .field
-      label Lọc spam
+      label Bài spam
       .ui.selection.dropdown
         input(type='hidden', name='spam')#spam
-        .default.text Lọc spam
+        .default.text Bài spam
         i.dropdown.icon
         .menu
           if filters != null
@@ -33,6 +39,11 @@
             each sentiment in filters.sentiments
               .item(data-value=sentiment)
                 = sentiment
+    .field
+      label Giới hạn
+      .ui.input
+        input(type='number', value='50', min='1', placeholder='50')#limit
+
   .twelve.fields
     .six.wide.field
       label Từ ngày
