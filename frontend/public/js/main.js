@@ -19,6 +19,10 @@ jQuery(document).ready(function() {
     url: '/comments',
     success: function(result) {
       $('#results').html(result);
+      $('table').tablesort();
+      $('thead th.date').data('sortBy', function(th, td, tablesort) {
+        return new Date(td.text());
+      });
     }
   });
 
@@ -49,6 +53,10 @@ $(document).on('click', '#btnRun', function(e) {
     data: params,
     success: function(result) {
       $('#results').html(result);
+      $('table').tablesort();
+      $('thead th.date').data('sortBy', function(th, td, tablesort) {
+        return new Date(td.text());
+      });
     }
   });
 });
