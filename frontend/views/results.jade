@@ -1,0 +1,20 @@
+table.ui.loading.sortable.celled.table
+   thead
+      tr
+         th ID
+         th Nội dung
+         th Ngày gửi
+         th Chủ đề
+         th Spam
+         th Đánh giá
+   tbody
+      if comments != null
+         each comment in comments
+            tr
+               td= comment.fb_id
+               td= comment.message
+               td= comment.time_created.toUTCString()
+               td= comment.topic
+               td= comment.is_spam
+               td= comment.sentiment
+

@@ -4,10 +4,11 @@ var express = require('express'),
     mongoose = require('mongoose'),
     jade = require('jade'),
     fs = require('fs'),
-    template = fs.readFileSync('views/filters.jade', 'utf8');
+    filtersTemplate = fs.readFileSync('views/filters.jade', 'utf8'),
+    resultsTemplate = fs.readFileSync('views/results.jade', 'utf8');
 
-var jadeFn = jade.compile(template, { filename: 'views/filters.jade', pretty: true });
-
+var jadeFilters = jade.compile(filtersTemplate, { filename: 'views/filters.jade', pretty: true });
+var jadeResults = jade.compile(resultsTemplate, { filename: 'views/results.jade', pretty: true });
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -51,28 +52,43 @@ db.once('open', function (callback) {
   var Comment = mongoose.model('Post', commentSchema);
   
   app.get('/', function(req, res) {
-    if (!req.xhr) {
-      Comment.getAll(20, function(err, docs) {
-        res.render('layout',
-          { comments : docs }
-        );
-      });
-    } else {
+    res.render('layout');
+  });
 
+  app.get('/comments', function(req, res) {
+
+    var obj = {};
+
+    if (req.query.topic != null && req.query.topic != 'Tất cả') {
+      obj['topic'] = req.query.topic;
     }
+
+    if (req.query.spam != null && req.query.spam != 'Tất cả') {
+      obj['is_spam'] = req.query.spam;
+    }
+
+    if (req.query.sentiment != null && req.query.sentiment != 'Tất cả') {
+      obj['sentiment'] = req.query.sentiment;
+    }
+
+    Comment.find(obj).limit(50).exec(function(err, result) {
+      console.log(obj);
+      var renderedTemplate = jadeResults({comments: result});
+      res.send(renderedTemplate);
+    });
   });
 
   app.get('/filters', function(req, res) {
-    var filters = {};
+    var filterOptions = {'spam': ['Tất cả', 'true', 'false']};
     Comment.findOne().sort('time_created').exec(function(err, doc) {
-      filters['min_date'] = doc.formatDate();
+      filterOptions['min_date'] = doc.formatDate();
       Comment.findOne().sort('-time_created').exec(function(err, doc) {
-        filters['max_date'] = doc.formatDate();
+        filterOptions['max_date'] = doc.formatDate();
         Comment.find().distinct('topic').exec(function(err, docs) {
-          filters['topics'] = ['Tất cả'].concat(docs);
+          filterOptions['topics'] = ['Tất cả'].concat(docs);
           Comment.find().distinct('sentiment').exec(function(err, docs) {
-            filters['sentiments'] = ['Tất cả'].concat(docs);
-            var renderedTemplate = jadeFn({filters: filters});
+            filterOptions['sentiments'] = ['Tất cả'].concat(docs);
+            var renderedTemplate = jadeFilters({filters: filterOptions});
             res.send(renderedTemplate);
           });
         });

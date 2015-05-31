@@ -23,26 +23,8 @@ html
         
         .ui.segment
           h2.ui.dividing.header Kết quả
-          table.ui.sortable.celled.table
-            thead
-              tr
-                th ID
-                th Nội dung
-                th Thời điểm
-                th Chủ đề
-                th Spam
-                th Đánh giá
-            tbody
-              each comment in comments
-                tr
-                  td= comment.fb_id
-                  td= comment.message
-                  td= comment.time_created.toUTCString()
-                  td= comment.topic
-                  td= comment.is_spam
-                  td= comment.sentiment
-        footer
-          p Running on node with Express, Jade and Stylus
+          #results
+            include results
 
     script(src='/vendors/jquery/jquery-2.1.4.js')
     script(src='/vendors/semantic-ui/js/semantic.js')

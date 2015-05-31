@@ -3,7 +3,7 @@
     .field
       label Chủ đề
       .ui.selection.dropdown
-        input(type='hidden', name='topic')
+        input(type='hidden', name='topic')#topic
         .default.text Chủ đề
         i.dropdown.icon
         .menu
@@ -14,17 +14,18 @@
     .field
       label Lọc spam
       .ui.selection.dropdown
-        input(type='hidden', name='spam')
+        input(type='hidden', name='spam')#spam
         .default.text Lọc spam
         i.dropdown.icon
         .menu
-          .item(data-value='all') Tất cả
-          .item(data-value='yes') Có
-          .item(data-value='no') Không
+          if filters != null
+            each value in filters.spam
+              .item(data-value=value)
+                = value
     .field
       label Đánh giá
       .ui.selection.dropdown
-        input(type='hidden', name='sentiment')
+        input(type='hidden', name='sentiment')#sentiment
         .default.text Đánh giá
         i.dropdown.icon
         .menu
@@ -36,11 +37,11 @@
     .six.wide.field
       label Từ ngày
       div(style='position:relative')
-        input(type='text', data-value= filters ? filters.min_date : '').datepicker
+        input(type='text', data-value= filters ? filters.min_date : '').datepicker#startDate
 
     .six.wide.field
       label Đến ngày
       div(style='position:relative')
-        input(type='text', data-value= filters ? filters.max_date : '').datepicker
+        input(type='text', data-value= filters ? filters.max_date : '').datepicker#endDate
 
-  .ui.facebook.button Tìm
+  .ui.facebook.button#btnRun Tìm
