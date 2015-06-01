@@ -8,10 +8,14 @@ function loadMainPage() {
       $('.ui.form').removeClass('loading');
       $('.ui.dropdown').dropdown();
       startDate = $('#startDate').pickadate({
-        formatSubmit: 'dd/mm/yyyy'
+        formatSubmit: 'dd/mm/yyyy',
+        selectYears: true,
+        selectMonths: true
       }).pickadate('picker');
       endDate = $('#endDate').pickadate({
-        formatSubmit: 'dd/mm/yyyy'
+        formatSubmit: 'dd/mm/yyyy',
+        selectYears: true,
+        selectMonths: true
       }).pickadate('picker');
 
       $('.error.message').hide();

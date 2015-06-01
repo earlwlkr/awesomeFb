@@ -18,3 +18,14 @@ body, .ui.button,
 .ui.statistics .statistic > .value, .ui.statistic > .value {
   font-size: 4rem;
 }
+
+.ui.form select {
+  display: inline-block;
+  height: 44.8125px;
+  width: 23.5%;
+  padding: .3em;
+}
+
+.picker__header > select.picker__select--month {
+  width: 44%;
+}
