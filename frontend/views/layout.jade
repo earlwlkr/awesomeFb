@@ -16,15 +16,10 @@ html
           h1 awesomeFb
 
         .ui.top.attached.tabular.menu
-          a.active.item(data-tab='main') Truy vấn
-          a.item(data-tab='stats') Thống kê
+          a.active.item(data-tab='main')#tabMain Truy vấn
+          a.item(data-tab='stats')#tabStats Thống kê
 
         .ui.bottom.attached.active.tab.segment(data-tab='main')
-          .ui.segment
-            h2.ui.dividing.header Thống kê
-            #stats
-              include stats
-
           .ui.segment
             h2.ui.dividing.header Bộ lọc
             #filters
@@ -36,7 +31,10 @@ html
               include results
 
         .ui.bottom.attached.tab.segment(data-tab='stats')
-          p Hello world!
+          .ui.segment
+            h2.ui.dividing.header Thống kê
+            #stats
+              include stats
 
     script(src='/vendors/jquery/jquery-2.1.4.js')
     script(src='/vendors/semantic-ui/js/semantic.js')

@@ -1,5 +1,6 @@
 var startDate, endDate;
-jQuery(document).ready(function() {
+
+function loadMainPage() {
   $.ajax({
     url: '/filters',
     success: function(result) {
@@ -19,14 +20,6 @@ jQuery(document).ready(function() {
       });
     }
   });
-  $('.menu .item').tab();
-
-  $.ajax({
-    url: '/stats',
-    success: function(result) {
-      $('#stats').html(result);
-    }
-  });
 
   $.ajax({
     url: '/comments',
@@ -38,7 +31,28 @@ jQuery(document).ready(function() {
       });
     }
   });
+}
 
+function loadStatsPage() {
+  $.ajax({
+    url: '/stats',
+    success: function(result) {
+      $('#stats').html(result);
+    }
+  });
+}
+
+jQuery(document).ready(function() {
+  $('.menu .item').tab();
+  loadMainPage();
+
+  $('#tabMain').click(function() {
+    loadMainPage();
+  });
+  $('#tabStats').click(function() {
+    console.log($(this));
+    loadStatsPage();
+  });
 });
 
 $(document).on('click', '#btnRun', function(e) {
