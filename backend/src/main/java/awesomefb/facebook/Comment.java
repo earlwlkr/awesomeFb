@@ -60,6 +60,10 @@ public class Comment extends Entity {
         mSentiment = sen;
     }
 
+    public void setIsSpam(boolean isSpam) {
+        mIsSpam = isSpam;
+    }
+
     public Comment(JSONObject comment) {
         super(comment);
         mMessage = comment.getString("message");

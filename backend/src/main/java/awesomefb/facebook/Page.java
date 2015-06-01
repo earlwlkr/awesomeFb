@@ -50,7 +50,7 @@ public class Page extends Entity {
         final int COMMENTS_LIMIT = 50;
         String params = "fields=id,from,message,created_time,comments.limit(" + COMMENTS_LIMIT + ")&limit=" + POSTS_LIMIT;
         JSONObject obj = mFacebook.request(getFacebookId() + "/feed", params);
-        if (!obj.has("data")) {
+        if (obj == null || !obj.has("data")) {
             return null;
         }
 
