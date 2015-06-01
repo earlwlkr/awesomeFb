@@ -2,6 +2,8 @@ package awesomefb.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -15,11 +17,16 @@ public class JsonReader {
         URL url = new URL(urlPath);
         URLConnection con = url.openConnection();
         con.setConnectTimeout(30000);
-        con.setReadTimeout(10000);
-        InputStream in = con.getInputStream();
-        String jsonText = org.apache.commons.io.IOUtils.toString(in);
-        System.out.println("Received HTTP response.");
-        JSONObject json = new JSONObject(jsonText);
-        return json;
+        con.setReadTimeout(30000);
+        try {
+            InputStream in = con.getInputStream();
+            String jsonText = org.apache.commons.io.IOUtils.toString(in);
+            System.out.println("Received HTTP response.");
+            JSONObject json = new JSONObject(jsonText);
+            return json;
+        } catch (SocketTimeoutException e) {
+            System.out.println("Timed out for " + urlPath);
+        }
+        return null;
     }
 }
