@@ -105,7 +105,7 @@ public class FacebookFocusedCrawler {
         //facebook.login();
 
         if (RESET || mDatabase.getQueue().isEmpty()) {
-            mDatabase.drop();
+            //mDatabase.drop();
 
             mQueue = new LinkedList<Page>();
             List<Page> resultPages = Facebook.getInstance().searchPages(topic);
@@ -165,6 +165,8 @@ public class FacebookFocusedCrawler {
                                 comment.setTopic(topic);
                                 sentiment = mClassifier.classify(comment.getMessage());
                                 comment.setSentiment(sentiment);
+                                boolean isSpam = mSpamFilter.isSpam(comment.getMessage());
+                                comment.setIsSpam(isSpam);
                                 mDatabase.insertComment(comment);
                                 commentsCount++;
                             }
