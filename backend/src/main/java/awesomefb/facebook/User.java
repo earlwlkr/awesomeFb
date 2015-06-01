@@ -12,7 +12,11 @@ public class User extends Entity {
 
     public User(JSONObject reference) {
         super(reference);
-        mName = reference.getString("name");
+        if (reference.has("name")) {
+            mName = reference.getString("name");
+        } else {
+            mName = "undefined";
+        }
         mIsPage = reference.has("category");
     }
 
