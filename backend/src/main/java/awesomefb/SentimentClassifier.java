@@ -28,6 +28,7 @@ public class SentimentClassifier {
     }
 
     public void train() {
+        System.out.println("Training classifier...");
         if (mCategories != null) {
             for (int i = 0; i < mCategories.length; ++i) {
                 String category = mCategories[i];
@@ -48,6 +49,7 @@ public class SentimentClassifier {
                 }
             }
         }
+        System.out.println("Done training.");
     }
 
     public String classify(String txt) {

@@ -60,7 +60,7 @@ public class Page extends Entity {
                 break;
             }
             obj = mFacebook.request(obj.getJSONObject("paging").getString("next"));
-            if (!obj.has("data")) {
+            if (obj == null || !obj.has("data")) {
                 break;
             }
             JSONArray nextResults = obj.getJSONArray("data");

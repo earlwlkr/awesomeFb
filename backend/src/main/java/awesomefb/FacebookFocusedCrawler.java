@@ -51,9 +51,10 @@ public class FacebookFocusedCrawler {
     }
 
     public void run(String topic) {
-        System.out.println("Training classifier...");
+        //labelSpam();
+
         mClassifier.train();
-        System.out.println("Done training.");
+
         crawl(topic);
     }
 
@@ -65,6 +66,17 @@ public class FacebookFocusedCrawler {
         for (Comment comment: comments) {
             String sentiment = classifier.classify(comment.getMessage());
             comment.setSentiment(sentiment);
+            mDatabase.insertComment(comment);
+            System.out.println(count++);
+        }
+    }
+
+    public void labelSpam() {
+        int count = 0;
+        List<Comment> comments = mDatabase.getComments();
+        for (Comment comment: comments) {
+            boolean isSpam = mSpamFilter.isSpam(comment.getMessage());
+            comment.setIsSpam(isSpam);
             mDatabase.insertComment(comment);
             System.out.println(count++);
         }
@@ -110,11 +122,12 @@ public class FacebookFocusedCrawler {
 
                 // Get feed as JSON array
                 JSONArray feed = page.getPosts();
-                int feedLength = feed.length();
-                System.out.println("[awesomeFb] " + feedLength + " posts returned.");
-                System.out.println("Processing returned JSON.");
 
                 if (feed != null) {
+                    int feedLength = feed.length();
+                    System.out.println("[awesomeFb] " + feedLength + " posts returned.");
+                    System.out.println("Processing returned JSON.");
+
                     int count = 0;
                     int commentsCount = 0;
                     for (int i = 0; i < feedLength; i++) {
