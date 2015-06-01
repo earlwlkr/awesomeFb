@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
       });
     }
   });
-  $('a.tabular.menu.item').tab();
+  $('.menu .item').tab();
 
   $.ajax({
     url: '/stats',
