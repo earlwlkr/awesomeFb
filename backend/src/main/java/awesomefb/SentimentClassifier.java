@@ -20,24 +20,30 @@ public class SentimentClassifier {
         mPolarityDir = new File("train_datasets");
         mCategories = mPolarityDir.list();
         int nGram = 8;
-        mClassifier = DynamicLMClassifier.createNGramProcess(mCategories, nGram);
+        if (mCategories != null) {
+            mClassifier = DynamicLMClassifier.createNGramProcess(mCategories, nGram);
+        } else {
+            System.out.println("Train data not found.");
+        }
     }
 
-    void train() {
-        for (int i = 0; i < mCategories.length; ++i) {
-            String category = mCategories[i];
-            Classification classification = new Classification(category);
-            File dir = new File(mPolarityDir, mCategories[i]);
-            File[] trainFiles = dir.listFiles();
-            for (int j = 0; j < trainFiles.length; ++j) {
-                File trainFile = trainFiles[j];
-                if (isTrainingFile(trainFile)) {
-                    try {
-                        String review = Files.readFromFile(trainFile, "ISO-8859-1");
-                        Classified<CharSequence> classified = new Classified<CharSequence>(review, classification);
-                        mClassifier.handle(classified);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+    public void train() {
+        if (mCategories != null) {
+            for (int i = 0; i < mCategories.length; ++i) {
+                String category = mCategories[i];
+                Classification classification = new Classification(category);
+                File dir = new File(mPolarityDir, mCategories[i]);
+                File[] trainFiles = dir.listFiles();
+                for (int j = 0; j < trainFiles.length; ++j) {
+                    File trainFile = trainFiles[j];
+                    if (isTrainingFile(trainFile)) {
+                        try {
+                            String review = Files.readFromFile(trainFile, "ISO-8859-1");
+                            Classified<CharSequence> classified = new Classified<CharSequence>(review, classification);
+                            mClassifier.handle(classified);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -45,8 +51,11 @@ public class SentimentClassifier {
     }
 
     public String classify(String txt) {
-        Classification classification = mClassifier.classify(txt);
-        String resultCategory = classification.bestCategory();
+        String resultCategory = "pos";
+        if (mCategories != null) {
+            Classification classification = mClassifier.classify(txt);
+            resultCategory = classification.bestCategory();
+        }
         return resultCategory;
     }
 
