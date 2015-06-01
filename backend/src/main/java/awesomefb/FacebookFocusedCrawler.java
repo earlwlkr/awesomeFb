@@ -52,9 +52,9 @@ public class FacebookFocusedCrawler {
 
     public void run(String topic) {
         //labelSpam();
+        //updateUsers();
 
         mClassifier.train();
-
         crawl(topic);
     }
 
@@ -79,6 +79,21 @@ public class FacebookFocusedCrawler {
             comment.setIsSpam(isSpam);
             mDatabase.insertComment(comment);
             System.out.println(count++);
+        }
+    }
+
+    public void updateUsers() {
+        int count = 0;
+        Facebook handler = Facebook.getInstance();
+        handler.login();
+        List<Comment> comments = mDatabase.getComments();
+        for (Comment comment: comments) {
+            User creator = comment.getCreator();
+            if (!creator.isPage()) {
+                creator = handler.updateUserDetails(creator);
+                mDatabase.insertUser(creator);
+                System.out.println(count++);
+            }
         }
     }
 
