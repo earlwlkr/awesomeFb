@@ -62,19 +62,27 @@ jQuery(document).ready(function() {
 $(document).on('click', '#btnRun', function(e) {
   var limit = $('#limit').val();
   if (limit < 1) {
+    $('.error.message > p').text('Giới hạn không thể nhỏ hơn 1!');
     $('.error.message').show();
-    $('#limit').parent().addClass('error');
     return;
   }
-  $('.error.message').hide();
-  $('#limit').parent().removeClass('error');
+  
   var
       topic = $('#topic').val(),
       spam = $('#spam').val(),
       sentiment = $('#sentiment').val(),
-      start = startDate.get('select', 'mm dd yyyy'),
-      end = endDate.get('select', 'mm dd yyyy')
+      start = startDate.get('select'),
+      end = endDate.get('select')
   ;
+  if (end.pick < start.pick) {
+    $('.error.message > p').text('Giới hạn ngày không hợp lệ!');
+    $('.error.message').show();
+    return;
+  }
+
+  $('.error.message').hide();
+  start = startDate.get('select', 'mm dd yyyy');
+  end = endDate.get('select', 'mm dd yyyy');
   var params = {};
   if (topic != '') {
     params['topic'] = topic;
