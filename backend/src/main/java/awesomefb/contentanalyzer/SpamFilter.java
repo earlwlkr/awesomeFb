@@ -1,4 +1,4 @@
-package awesomefb.spamfilter;
+package awesomefb.contentanalyzer;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,8 +18,8 @@ public class SpamFilter {
 
 	private static SpamFilter instance = null;
 
-	private String fileNameHamData = "datatraining/ham.data";
-	private String fileNameSpamData = "datatraining/spam.data";
+	private String fileNameHamData = "traindata/spam/ham.data";
+	private String fileNameSpamData = "traindata/spam/spam.data";
 
 	private HashMap<String, Word> words; // A HashMap to keep track of all words
 	private String splitregex; // How to split the String into tokens
@@ -42,7 +42,10 @@ public class SpamFilter {
 
 	// Return value boolean, is cmt a Spam?
 	public boolean isSpam(String comment) {
-			return analyze(comment);
+		if (words.isEmpty()) {
+            return false;
+        }
+        return analyze(comment);
 	}
 
 	// Run classification
@@ -245,7 +248,7 @@ public class SpamFilter {
 
 		// Apply formula
 		float pspam = pposproduct / (pposproduct + pnegproduct);
-		System.out.println("\nSpam rating: " + pspam);
+		System.out.println("Spam rating: " + pspam);
 
 		// If the computed value is great than 0.9 we have a Spam!!
 		if (pspam > 0.9f)

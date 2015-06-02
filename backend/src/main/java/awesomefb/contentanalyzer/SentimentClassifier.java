@@ -1,4 +1,4 @@
-package awesomefb;
+package awesomefb.contentanalyzer;
 
 import com.aliasi.classify.Classification;
 import com.aliasi.classify.Classified;
@@ -17,7 +17,7 @@ public class SentimentClassifier {
     DynamicLMClassifier<NGramProcessLM> mClassifier;
 
     public SentimentClassifier() {
-        mPolarityDir = new File("train_datasets");
+        mPolarityDir = new File("traindata/sentiment");
         mCategories = mPolarityDir.list();
         int nGram = 8;
         if (mCategories != null) {

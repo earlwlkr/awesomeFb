@@ -1,7 +1,7 @@
 /**
  * 
  */
-package awesomefb.spamfilter;
+package awesomefb.contentanalyzer;
 
 /**
  * @author Huy

@@ -1,12 +1,12 @@
 package awesomefb;
 
 import awesomefb.facebook.*;
-import awesomefb.spamfilter.SpamFilter;
+import awesomefb.contentanalyzer.SentimentClassifier;
+import awesomefb.contentanalyzer.SpamFilter;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

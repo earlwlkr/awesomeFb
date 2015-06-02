@@ -56,3 +56,4 @@ backend/.idea/
 backup/
 backend/train_datasets/
 frontend/.idea/
+backend/traindata/sentiment/
